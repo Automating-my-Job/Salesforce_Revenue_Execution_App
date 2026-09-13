@@ -4,7 +4,7 @@ This repository is only for sharing the Salesforce Revenue Execution demo video.
 
 ## Watch the demo
 
-[Watch the Salesforce Revenue Execution demo](demo/revenue-execution-demo.mp4)
+[Watch the Salesforce Revenue Execution demo](https://github.com/Automating-my-Job/Salesforce_Revenue_Execution_App/raw/refs/heads/main/demo/revenue-execution-demo.mp4)
 
 ## About the app
 
