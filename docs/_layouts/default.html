@@ -1,0 +1,40 @@
+{%- assign current_file = page.name | remove: ".md" | remove: ".html" -%}
+{%- assign flat = "" | split: "" -%}
+{%- for group in site.data.navigation -%}{%- for item in group.pages -%}
+{%- assign flat = flat | push: item -%}
+{%- if item.file == current_file -%}{%- assign nav_title = item.title -%}{%- assign crumb_group = group.group -%}{%- assign idx = flat.size | minus: 1 -%}{%- endif -%}
+{%- endfor -%}{%- endfor -%}
+{%- if idx -%}{%- if idx > 0 -%}{%- assign prev_i = idx | minus: 1 -%}{%- assign prev = flat[prev_i] -%}{%- endif -%}{%- assign next_i = idx | plus: 1 -%}{%- assign next = flat[next_i] -%}{%- endif -%}
+{% include head.html %}
+<body class="doc page-{{ current_file }}">
+{% include header.html %}
+<div class="doc-shell">
+  <aside class="sidebar" aria-label="Documentation">
+    <nav>{% include nav.html %}</nav>
+  </aside>
+  <main id="content" class="doc-main">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="./">Home</a>{% if crumb_group %}<span class="crumb-sep" aria-hidden="true">›</span><span>{{ crumb_group }}</span>{% endif %}
+    </nav>
+    <article class="prose">
+{{ content }}
+    </article>
+    <nav class="pager" aria-label="Previous and next">
+      {%- if prev %}
+      <a class="pager-prev" href="{{ prev.file }}.html" rel="prev"><span>Previous</span><strong>{{ prev.title }}</strong></a>
+      {%- elsif idx == 0 %}
+      <a class="pager-prev" href="./" rel="prev"><span>Previous</span><strong>Overview</strong></a>
+      {%- endif %}
+      {%- if next %}
+      <a class="pager-next" href="{{ next.file }}.html" rel="next"><span>Next</span><strong>{{ next.title }}</strong></a>
+      {%- endif %}
+    </nav>
+    <p class="page-help">Still stuck? <a href="support.html">Contact support</a><span aria-hidden="true"> · </span><a href="#top">Back to top</a></p>
+  </main>
+  <aside class="toc" aria-label="On this page">
+    <div class="toc-inner" id="toc"></div>
+  </aside>
+</div>
+{% include footer.html %}
+</body>
+</html>

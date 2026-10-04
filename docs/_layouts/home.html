@@ -1,0 +1,62 @@
+{%- assign current_file = page.name | remove: ".md" | remove: ".html" -%}
+{%- assign flat = "" | split: "" -%}
+{%- for group in site.data.navigation -%}{%- for item in group.pages -%}
+{%- assign flat = flat | push: item -%}
+{%- if item.file == current_file -%}{%- assign nav_title = item.title -%}{%- assign crumb_group = group.group -%}{%- assign idx = flat.size | minus: 1 -%}{%- endif -%}
+{%- endfor -%}{%- endfor -%}
+{%- if idx -%}{%- if idx > 0 -%}{%- assign prev_i = idx | minus: 1 -%}{%- assign prev = flat[prev_i] -%}{%- endif -%}{%- assign next_i = idx | plus: 1 -%}{%- assign next = flat[next_i] -%}{%- endif -%}
+{%- assign parts = content | split: "<h2" -%}
+{% include head.html %}
+<body class="home">
+{% include header.html %}
+<main id="content">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+{{ parts | first }}
+      </div>
+      <figure class="hero-art" aria-hidden="true">{% include hero-art.html %}</figure>
+    </div>
+  </section>
+  <section class="views">
+    <div class="wrap">
+{%- for part in parts offset: 1 %}
+<h2{{ part }}
+{%- endfor %}
+    </div>
+  </section>
+  <section class="glance">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Set up in four steps</h2>
+        <p>From install to your first dashboard.</p>
+      </div>
+      <ol class="steps">
+        {%- for step in site.data.home.setup %}
+        <li><a href="quick-start.html#{{ step.anchor }}"><span class="step-num">{{ forloop.index }}</span><span class="step-title">{{ step.title }}</span></a></li>
+        {%- endfor %}
+      </ol>
+      <p class="section-link"><a href="quick-start.html">Open the quick start</a></p>
+    </div>
+  </section>
+  <section class="browse">
+    <div class="wrap">
+      <div class="section-head"><h2>Documentation</h2></div>
+      <div class="doc-grid">
+        {%- for group in site.data.navigation %}{% if group.pages[0].blurb %}
+        <div class="doc-card">
+          <h3>{{ group.group }}</h3>
+          <ul>
+            {%- for item in group.pages %}
+            <li><a href="{{ item.file }}.html"><span class="doc-title">{{ item.title }}</span><span class="doc-blurb">{{ item.blurb }}</span></a></li>
+            {%- endfor %}
+          </ul>
+        </div>
+        {%- endif %}{% endfor %}
+      </div>
+    </div>
+  </section>
+</main>
+{% include footer.html %}
+</body>
+</html>

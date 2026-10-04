@@ -1,0 +1,35 @@
+# Site navigation: the sidebar, menu, footer, breadcrumbs, and previous/next order.
+# Every page in docs/customer except index.md appears exactly once.
+- group: Get started
+  pages:
+    - file: quick-start
+      title: Quick start
+      blurb: Install and set up, step by step.
+    - file: setup-video
+      title: Setup video
+      blurb: The same steps, chapter by chapter.
+- group: Guides
+  pages:
+    - file: user-guide
+      title: User guide
+      blurb: What every view shows, for the people who use it.
+    - file: admin-guide
+      title: Admin guide
+      blurb: Every setting, access step, and Health check.
+    - file: configuration-worksheet
+      title: Configuration worksheet
+      blurb: Record your setup decisions.
+- group: Help
+  pages:
+    - file: release-notes
+      title: Release notes
+      blurb: What changed in each release.
+    - file: support
+      title: Support
+      blurb: How to reach us, and what to include.
+- group: Legal
+  pages:
+    - file: terms
+      title: Terms
+    - file: privacy
+      title: Privacy

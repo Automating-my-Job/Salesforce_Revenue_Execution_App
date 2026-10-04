@@ -1,9 +1,19 @@
 title: Revenue Execution
 description: Read-only Salesforce dashboards for pipeline accountability and executive reporting.
-theme: jekyll-theme-primer
+# The site's own _layouts/; GitHub Pages applies jekyll-theme-primer unless theme is null.
+theme: null
 plugins:
   - jekyll-relative-links
   - jekyll-optional-front-matter
   - jekyll-titles-from-headings
 relative_links:
   enabled: true
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: index.md
+    values:
+      layout: home

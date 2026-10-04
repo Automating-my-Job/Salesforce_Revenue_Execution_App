@@ -1,0 +1,13 @@
+<ul class="nav-groups">
+  <li class="nav-home"><a href="./"{% if current_file == "index" %} aria-current="page"{% endif %}>Overview</a></li>
+  {%- for group in site.data.navigation %}
+  <li>
+    <span class="nav-label">{{ group.group }}</span>
+    <ul>
+      {%- for item in group.pages %}
+      <li><a href="{{ item.file }}.html"{% if item.file == current_file %} aria-current="page"{% endif %}>{{ item.title }}</a></li>
+      {%- endfor %}
+    </ul>
+  </li>
+  {%- endfor %}
+</ul>

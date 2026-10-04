@@ -1,12 +1,13 @@
 # Revenue Execution
 
-Read-only Salesforce dashboards for pipeline accountability and executive reporting: Revenue Overview, Pipeline Schedule, Sales Outcomes, and Product Overview, with optional Deal Alerts. Everything runs inside your Salesforce org, as each viewing user.
+Read-only Salesforce dashboards for pipeline accountability and executive reporting. Everything runs inside your org, as each viewing user.
 
-- [Quick start](quick-start.md): install and set up, step by step.
-- [Setup video](setup-video.md): the same steps, chapter by chapter.
-- [User guide](user-guide.md): what every view shows, for the people who use it.
-- [Admin guide](admin-guide.md): every setting, access step, and Health check.
-- [Configuration worksheet](configuration-worksheet.md): record your setup decisions.
-- [Release notes](release-notes.md)
-- [Support](support.md)
-- [Terms](terms.md) · [Privacy](privacy.md)
+[Quick start](quick-start.md) [Admin guide](admin-guide.md)
+
+## Four dashboards. Read-only by design.
+
+- [Revenue Overview](user-guide.md#revenue-overview)<br>Where pipeline stands today and how closed deals went.
+- [Pipeline Schedule](user-guide.md#pipeline-schedule)<br>Which open deals need action, who owns them, and when they close.
+- [Sales Outcomes](user-guide.md#sales-outcomes)<br>How closed deals went in the period.
+- [Product Overview](user-guide.md#product-overview)<br>What is selling, what is losing, and which products need help.
+- [Deal Alerts](user-guide.md#deal-alerts)<br>Optional: emails owners about past-due deals. Off until you turn it on.

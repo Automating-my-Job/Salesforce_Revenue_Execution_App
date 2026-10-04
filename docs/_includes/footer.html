@@ -1,0 +1,21 @@
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <a class="brand" href="./">{% include logo.html %}<span>Revenue Execution</span></a>
+      <p>Read-only dashboards for Salesforce.</p>
+      <p><a href="mailto:support@opsgs.com">support@opsgs.com</a></p>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      {%- for group in site.data.navigation %}
+      <div>
+        <h2>{{ group.group }}</h2>
+        <ul>
+          {%- for item in group.pages %}
+          <li><a href="{{ item.file }}.html">{{ item.title }}</a></li>
+          {%- endfor %}
+        </ul>
+      </div>
+      {%- endfor %}
+    </nav>
+  </div>
+</footer>

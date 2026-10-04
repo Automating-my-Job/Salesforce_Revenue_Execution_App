@@ -1,0 +1,10 @@
+# Landing page "Set up in four steps": each anchor names a heading in quick-start.md.
+setup:
+  - title: Install for Admins Only
+    anchor: 1-install-for-admins-only
+  - title: Give yourself access
+    anchor: 2-give-yourself-access
+  - title: Open Admin / Setup
+    anchor: 3-open-admin--setup
+  - title: Check a dashboard
+    anchor: 4-check-a-dashboard
