@@ -1,4 +1,4 @@
-// Revenue Execution docs: menu behavior, section links, step badges, and "On this page".
+// Revenue Execution docs: menu behavior, the home demo tabs, section links, step badges, and "On this page".
 // First-party only; the pages read fine without it.
 (function () {
   'use strict';
@@ -13,6 +13,30 @@
     });
     document.addEventListener('keydown', function (event) {
       if (event.key === 'Escape') menu.open = false;
+    });
+  }
+
+  // Home demo: the tabs switch between sample screens (arrow keys, Home and End move between tabs).
+  var demo = document.querySelector('[data-demo]');
+  if (demo) {
+    var tabs = Array.prototype.slice.call(demo.querySelectorAll('[role="tab"]'));
+    var select = function (tab, focus) {
+      tabs.forEach(function (each) {
+        var on = each === tab;
+        each.setAttribute('aria-selected', on ? 'true' : 'false');
+        each.tabIndex = on ? 0 : -1;
+        document.getElementById(each.getAttribute('aria-controls')).hidden = !on;
+      });
+      if (focus) tab.focus();
+    };
+    tabs.forEach(function (tab, index) {
+      tab.addEventListener('click', function () { select(tab, false); });
+      tab.addEventListener('keydown', function (event) {
+        var next = { ArrowRight: index + 1, ArrowLeft: index - 1, Home: 0, End: tabs.length - 1 }[event.key];
+        if (next === undefined) return;
+        event.preventDefault();
+        select(tabs[(next + tabs.length) % tabs.length], true);
+      });
     });
   }
 
