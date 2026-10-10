@@ -52,7 +52,7 @@ A deal is **past due** when it is open and its close date is before today. Close
 
 How closed deals went in the period: only won and lost deals count.
 
-- **Win rate:** "N won of D closed". Below your company's minimum sample it shows **Low sample** with its counts.
+- **Win rate:** "N won of D closed". Below your company's minimum sample it shows **Small sample** with its counts.
 - **Booked value and lost value:** the deal amounts of won and lost deals. Lost value is the estimated deal value, not revenue lost.
 - **Average days to win:** from the deal's start date to its close, for won deals with valid dates. The card names the start date it uses.
 - **Close-date push:** how far close dates moved later, from the history Salesforce kept. The earliest date it finds is not always the original commitment.
@@ -90,7 +90,7 @@ If you get an alert, open the deal from the email and update its close date or n
 - **Deal value:** Amount, or the currency field your company chose.
 - **Owner credit:** the person a deal counts for: the owner, or the user field your company chose. **Unattributed** means the deal credits no one; **Restricted owner** means you can't see that user.
 - **Closed:** won or lost. Win rate never counts open deals.
-- **Low sample:** too few closed deals for a fair rate; the counts are shown instead of a judgement.
+- **Small sample:** too few closed deals for a fair rate; the counts are shown instead of a judgement.
 - **Not recorded:** the deal has no value in that field.
 
 ## When something looks wrong
