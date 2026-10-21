@@ -20,23 +20,24 @@ To point someone at a step, name the section and subsection, for example "Admin 
 
 ## Before you install
 
-Revenue Execution adds four read-only dashboards (Revenue Overview, Pipeline Schedule, Sales Outcomes, and Product Overview) and administrator-only Admin / Setup and Deal Alerts pages.
+Revenue Execution adds five read-only dashboards (Revenue Overview, Pipeline Schedule, Sales Outcomes, Product Overview, and Team Performance) and administrator-only Admin / Setup and Deal Alerts pages.
 
 1. **Check your edition.** You need Lightning Experience and an edition that runs Apex and custom metadata types, such as Enterprise, Unlimited, or Developer Edition. **Publish blocker:** the supported-edition list is not yet confirmed.
 2. **Check your admin access.** You need Download AppExchange Packages (to install), Customize Application, View Setup and Configuration, Assign Permission Sets, and Manage Profiles and Permission Sets (for your field-access permission set, tab visibility, and permission set groups). A System Administrator has all five.
 3. **Check your data.** The dashboards read Opportunities with their Accounts and owners. Product Overview and product detail also need Products, price books, and Opportunity Products.
-4. **Choose quarters.** Calendar quarters are the default. To use Salesforce fiscal quarters, check Setup > Company Settings > Fiscal Year. With a standard fiscal year, the start month is all you need. With custom fiscal years, define the year covering today, and the next one before the current quarter ends.
-5. **Know the currency rule.** If multiple currencies are enabled, every dashboard hides combined amounts and keeps counts exact; Pipeline Schedule still shows each deal's own amount and currency. Revenue Execution does not convert currencies. Product Overview's Needs help then compares lost and won deal counts.
-6. **Start in a sandbox.**
-7. **Know what it never does.** The dashboards are read-only:
+4. **Check your volume.** Revenue Execution reads your Salesforce data live, so every figure is current, exact, and limited to what each person can see. It's built for organizations closing up to 25,000 deals a year. If you close more, contact us at [support@opsgs.com](mailto:support@opsgs.com) before you roll out, and we'll set up reporting sized for your volume. Views that include open deals (Pipeline Schedule, Product Overview, and Team Performance) work best by team or region on large pipelines; for Pipeline Schedule, that's above about 3,000 open deals.
+5. **Choose quarters.** Calendar quarters are the default. To use Salesforce fiscal quarters, check Setup > Company Settings > Fiscal Year. With a standard fiscal year, the start month is all you need. With custom fiscal years, define the year covering today, and the next one before the current quarter ends.
+6. **Know the currency rule.** If multiple currencies are enabled, every dashboard hides combined amounts and keeps counts exact; Pipeline Schedule still shows each deal's own amount and currency. Revenue Execution does not convert currencies. Product Overview's Needs help then compares lost and won deal counts.
+7. **Start in a sandbox.**
+8. **Know what it never does.** The dashboards are read-only:
    - They never create, edit, or delete records (including Tasks), send email or notifications, call an outside service, run scheduled or background jobs, or change sharing, profiles, or permission sets.
    - Revenue Execution writes only its own settings, when an administrator you have allowed saves them in Admin / Setup or [Deal Alerts](#deal-alerts); once Deal Alerts is on, it also writes its send log and sends its emails. Setup still works if you would rather save there.
    - Every query runs as the viewing user, with that user's sharing and object and field access. Salesforce computes every figure; the browser only displays it.
    - Otherwise, Admin / Setup only reads your setup and reports on it.
-8. **Know what it adds.**
-   - The **Revenue Execution** app, with tabs Revenue Overview, Pipeline Schedule, Sales Outcomes, Product Overview, Opportunities, Admin / Setup, and Deal Alerts.
-   - Permission sets **Revenue Execution Viewer** (`OpsGS__Revenue_Execution_Viewer`), **Revenue Execution Configuration Health** (`OpsGS__Revenue_Execution_Config_Health`) for the Admin / Setup tab, and **Revenue Execution Mapping Editor** (`OpsGS__Revenue_Execution_Mapping_Editor`), which grants only the class that saves mappings and is assigned to no one. No permission set group is included.
-   - Custom permission **Revenue Execution Edit Mappings** (`OpsGS__Revenue_Execution_Edit_Mappings`), granted by none of the included permission sets.
+9. **Know what it adds.**
+   - The **Revenue Execution** app, with tabs Revenue Overview, Pipeline Schedule, Sales Outcomes, Product Overview, Team Performance, Opportunities, Admin / Setup, and Deal Alerts.
+   - Permission sets **Revenue Execution Viewer** (`OpsGS__Revenue_Execution_Viewer`), **Revenue Execution Configuration Health** (`OpsGS__Revenue_Execution_Config_Health`) for the Admin / Setup tab, **Revenue Execution Mapping Editor** (`OpsGS__Revenue_Execution_Mapping_Editor`), and **Revenue Execution Team Performance All Teams** (`OpsGS__Revenue_Execution_Team_All_Teams`), the last two assigned to no one. [Grant access](#grant-access) says what each grants. No permission set group is included.
+   - Custom permission **Revenue Execution Edit Mappings** (`OpsGS__Revenue_Execution_Edit_Mappings`), granted by none of the included permission sets, and **Team Performance: all teams** (`OpsGS__Revenue_Execution_Team_All_Teams`), granted only by its own set.
    - Custom metadata type **Revenue Execution Setting** (`OpsGS__Revenue_Execution_Setting__mdt`) with one record, **Default**, and **Revenue Risk Tag** (`OpsGS__Revenue_Risk_Tag__mdt`) with four inactive records.
    - Opportunity picklist fields **Required Response** (`OpsGS__Required_Response__c`), **Escalation State** (`OpsGS__Escalation_State__c`), and **Revenue Risk** (`OpsGS__Revenue_Risk__c`). No page layouts and no Product fields are included.
    - Deal Alerts components, off and assigned to no one: the **Deal Alerts** tab (`OpsGS__Deal_Alerts`); custom metadata types **Deal Alert Rule** (`OpsGS__Deal_Alert_Rule__mdt`, three inactive samples) and **Deal Alert Setting** (`OpsGS__Deal_Alert_Setting__mdt`, record **Default**); objects `OpsGS__Deal_Alert_State__c`, `OpsGS__Deal_Alert_Run__c`, and `OpsGS__Deal_Alert_Notice__c`; permission sets `OpsGS__Revenue_Execution_Deal_Alerts` (the tab, its read class, and read) and `OpsGS__Revenue_Execution_Deal_Alerts_Manager` (the save class, and create, edit, and delete on those three objects only); and custom permission `OpsGS__Revenue_Execution_Manage_Deal_Alerts`, granted by none of the included permission sets.
@@ -57,12 +58,14 @@ When the package is released:
 
 Admin / Setup > **Get started** lists this work in order: check the core fields ([Map your fields](#map-your-fields)), assign Viewers, then grant field access.
 
-Revenue Execution Viewer is designed to grant the app, the four dashboard tabs and their Apex classes, Read on Account, Opportunity, Opportunity Product, Price Book, and Product, and Read on the three included Opportunity fields and some Product and Opportunity Product fields. It never grants Edit. Revenue Execution Configuration Health grants only the Admin / Setup tab and its Apex class. Revenue Execution Mapping Editor grants only the Apex class that saves mappings: no tab, no data, no system permission.
+Revenue Execution Viewer is designed to grant the app, the five dashboard tabs and their Apex classes, Read on Account, Opportunity, Opportunity Product, Price Book, and Product, and Read on the three included Opportunity fields and some Product and Opportunity Product fields. It never grants Edit. Revenue Execution Configuration Health grants only the Admin / Setup tab and its Apex class. Revenue Execution Mapping Editor grants only the Apex class that saves mappings: no tab, no data, no system permission.
 
-1. **Assign the Viewer to dashboard users.** Setup > Users > Permission Sets > Revenue Execution Viewer > Manage Assignments > Add Assignment. Select the sellers, managers, and executives who use the dashboards, click **Next**, then click **Assign**.
+1. **Assign the Viewer to dashboard users.** People see the dashboards only once they hold Revenue Execution Viewer, and it shows them only the deals they can already see. For each seller, manager, and executive: Setup > Users > Users > the person > Permission Set Assignments > **Edit Assignments**. Add Revenue Execution Viewer and click **Save**. Admin / Setup > Get started > **Recheck** confirms it.
+   - Or from the permission set: Setup > Users > Permission Sets (filter by **R**) > Revenue Execution Viewer > Manage Assignments > **Add Assignment**. In a new org, its list may show only people you opened recently.
    - Or add Revenue Execution Viewer to a permission set group your org owns (Setup > Users > Permission Set Groups > your group > Permission Sets in Group > Add Permission Sets), assign the group, and wait until its status is Updated.
 2. **Assign administrators.** Assign both Revenue Execution Viewer and Revenue Execution Configuration Health to administrators who hold View Setup and Configuration. Assign Revenue Execution Configuration Health to no one else: only its holders see Admin / Setup, unless a profile or permission set shows the tab; Health warns when one lacks View Setup and Configuration. **Publish blocker:** confirm whether Install for Admins Only gives administrator profiles this page's Apex classes and tab.
    - **Optional: let an administrator save settings in Admin / Setup.** Also assign Revenue Execution Mapping Editor, and grant that administrator the Revenue Execution Edit Mappings custom permission through a permission set your org owns (Custom Permissions > Edit). Saving there also needs a full Salesforce licence and **Modify Metadata Through Metadata API Functions**, which itself requires View Setup and Configuration and View Roles and Role Hierarchy. Without any of this, everything still works through Setup.
+   - **Team Performance.** It lists the people in each viewer's own reporting line (each user's Manager), highest won value first, with no scores on people; its figures are descriptive and not for pay or employment decisions. To let Revenue Operations see every team, assign Revenue Execution Team Performance All Teams; it widens only who is listed, never what anyone can read. To hold the tab back (for example while HR reviews it), assign the Viewer through a permission set group and add a muting permission set that hides the Team Performance tab.
 3. **Leave the included permission sets unchanged.** Don't edit or clone them. Health reports a Fail if Revenue Execution Viewer, Configuration Health, or Mapping Editor gains access or loses its app, tabs, classes, or object reads. Health also checks the two Deal Alerts sets, who holds them, and who else shows their tab. Give any extra access through a permission set your org owns.
 4. **Grant field access with your own permission set.** Setup > Users > Permission Sets > New. Enter a label, for example Revenue Execution Field Access, leave License as --None--, and click **Save**. Then:
    1. Object Settings > Opportunities > Edit. Under Field Permissions, select **Read Access** for Next Step (unless you map Next step to another field), Amount (unless you map Deal value to another field), and every Opportunity field you map in [Map your fields](#map-your-fields) or use in a [risk tag](#risk-tags) that Revenue Execution didn't add. Click **Save**.
@@ -174,7 +177,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 ### Outcome date
 
 - **Controls:** which Opportunity date places a closed deal in a period.
-- **Shows up:** Sales Outcomes periods and Data notes; Product Overview closed-deal periods; Revenue Overview closed outcomes and Data and metric notes. The label appears in those notes. Product mix's lost-deal date column shows the field's own label, with this label in its tooltip, the Days to close and Days tooltips, and Metric and data notes.
+- **Shows up:** Sales Outcomes periods and Data notes; Product Overview closed-deal periods; Revenue Overview closed outcomes and Data notes. The label appears in those notes. Product mix's lost-deal date column shows the field's own label, with this label in its tooltip, the Days to close and Days tooltips, and Data notes.
 - **Accepts:** a direct Opportunity Date or Date/Time field that is filterable and not a formula, plus a label.
 - **Default:** `CloseDate`, labeled "Current Opportunity Close Date". Close Date is editable, and the dashboards say so.
 - **If blank or invalid:** both settings are required. A blank, invalid, or unreadable field blocks Sales Outcomes, Product Overview, and Revenue Overview.
@@ -204,7 +207,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 ### Outcome start date
 
 - **Controls:** where cycle time starts.
-- **Shows up:** Sales Outcomes "Avg. days to win", in the headline figures and the owner table, and the "Start:" line in Data notes; Product Overview Product mix "Days to close" and its lost-deal Days column. Screen readers announce the label on the headline figure.
+- **Shows up:** Sales Outcomes "Avg. days to win", in Closing detail and the owner table, and the "Start:" line in Data notes; Product Overview Product mix "Days to close" and its lost-deal Days column. Screen readers announce the label on the headline figure.
 - **Accepts:** a direct Opportunity Date or Date/Time field that is not a formula and differs from the outcome date, plus a label.
 - **Default:** `CreatedDate`, labeled "Opportunity created (UTC)".
 - **If blank or invalid:** cycle time shows as unavailable, and Product mix leaves out Days to close. Counts and rates are unaffected.
@@ -224,7 +227,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 ### Close history
 
 - **Controls:** whether the dashboards show close-date changes from Opportunity history.
-- **Shows up:** Pipeline Schedule close-date revision markers; Sales Outcomes "Avg. observed push".
+- **Shows up:** Pipeline Schedule close-date revision markers; Sales Outcomes "Avg. observed push"; Team Performance "Pushed".
 - **Accepts:** Opportunity stage history (`OPPORTUNITY_HISTORY`), which reads close-date changes despite its label, or Disabled (`DISABLED`). Viewers read history through their Opportunity access.
 - **Default:** Opportunity stage history.
 - **If blank or invalid:** the markers and the push figure are hidden, with a note. Nothing is blocked.
@@ -359,13 +362,24 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 ### Loss reason
 
 - **Controls:** the recorded reason shown for lost deals.
-- **Shows up:** Product Overview Product mix: the leading recorded reason on a Needs help product, reason counts that each open their lost deals, and a column in its lost-deal list; the Sales Outcomes product lost-deal detail, headed "Current recorded" plus this field's name.
+- **Shows up:** Sales Outcomes **Close reasons**: the **Loss reasons** card. Product Overview Product mix: the leading recorded reason on a Needs help product, reason counts that each open their lost deals, and a column in its lost-deal list; the Sales Outcomes product lost-deal detail, headed "Current recorded" plus this field's name.
 - **Accepts:** a direct Opportunity picklist or text field (255 characters or fewer) that is filterable, groupable, and not a formula. Stage, Amount, Close Date, Next Step, Description, Name, Revenue Risk, and similar fields are rejected. Set both the field and the label.
 - **Default:** blank (off).
-- **If blank:** Product Overview's Metric and data notes say Loss reason isn't set up, and administrators with the Revenue Execution Edit Mappings custom permission see **Set up reasons** in Product mix, which opens Admin / Setup; Sales Outcomes says it is not configured.
+- **If blank:** Product Overview's Data notes say Loss reason isn't set up, and administrators with the Revenue Execution Edit Mappings custom permission see **Set up reasons** in Product mix, which opens Admin / Setup; Sales Outcomes says it is not configured.
 - **If invalid or only one is set:** Product Overview lists it under Setup notes and Sales Outcomes shows a notice, both named with your label. Lost-deal counts and lists still show in every case.
 - **Health:** Outcome and product mappings, "Loss reason …".
 - **Edit:** Default setting > Loss Reason Field API Name (`OpsGS__Loss_Reason_Field_API_Name__c`) and Loss Reason Label (`OpsGS__Loss_Reason_Label__c`).
+
+### Win reason
+
+- **Controls:** the recorded reason shown for won deals.
+- **Shows up:** Sales Outcomes **Close reasons**: the **Win reasons** card, headed by this field's name.
+- **Accepts:** the same fields as Loss reason. Set both the field and the label.
+- **Default:** blank (off).
+- **If blank:** Close reasons says win reasons aren't set up; administrators with the Revenue Execution Edit Mappings custom permission see **Set up reasons**, which opens Admin / Setup.
+- **If invalid or only one is set:** Close reasons says the field can't be used, named with your label. Won-deal counts still show.
+- **Health:** Outcome and product mappings, "Win reason …".
+- **Edit:** Default setting > Win Reason Field API Name (`OpsGS__Win_Reason_Field_API_Name__c`) and Win Reason Label (`OpsGS__Win_Reason_Label__c`).
 
 ## Risk tags
 
@@ -417,7 +431,7 @@ Deal Alerts emails deal owners, their managers and people you choose when open d
 2. **Let Salesforce send and deliver.** Setup > Deliverability: Access level **All email**. Then verify the sender, because Salesforce silently drops mail from an unverified one: your own email address (in your personal settings, Personal Information; Salesforce emails you a verification link), or an organization-wide address (Setup > **Organization-Wide Addresses**) that you choose in Deal Alerts > **Settings**. Also authenticate your domain with DKIM keys (Setup > **DKIM Keys**) or Authorized Email Domains. Deal Alerts' Get started > **Check** confirms Salesforce allows sending and an organization-wide sender is verified, and warns if your own address shows unverified; only an arriving test confirms delivery.
 3. **Set rules.** In Deal Alerts > **Rules**, turn on the sample **Past-due deals** or choose **New rule**. Saving shows the rule's counts first. Cards also offer Copy, Reset (an edited sample) and Hide or Remove; hidden rules can be restored. **Settings** holds the send time, weekdays, sender, limits, retention and subjects. Two monthly samples are there too: products that need help (choose who gets it) and salesperson win rate (to each salesperson's manager, and if you choose, the salesperson and the manager's manager; turning it on first asks you to confirm your company allows alerts that name people).
 4. **Preview.** Deal Alerts > **Preview** shows which of your visible deals would email whom today, or why nobody would.
-5. **Send yourself a test.** Deal Alerts' Get started > **Send test email** sends one deal email and one summary to you only, or just the summary when only monthly rules have something to show. When it arrives, choose **Yes, it arrived**; until you answer, the question comes back after a reload, and **Not yet** lists what to check. Once Deal Alerts is on, or after a sender change, send tests from **Settings**.
+5. **Send yourself a test.** Deal Alerts' Get started > **Send test email** sends one deal email and one summary to you only, or only the summary when only monthly rules have something to show. When it arrives, choose **Yes, it arrived**; until you answer, the question comes back after a reload, and **Not yet** lists what to check. Once Deal Alerts is on, or after a sender change, send tests from **Settings**.
 6. **Turn on.** After a Preview, choose **Turn on**, then either email the deals that already match on the first run or start quietly. It then runs hourly as you and sends once a day, within three hours of the send time.
 7. **Turn off** at any time; nothing more is sent. Turn it off before a Deal Alerts deploy, upgrade or uninstall, and on again afterwards.
 8. **Take over** when the administrator it runs as leaves or loses access: another administrator with the same access previews, confirms a test for the sender (their own when emails come from the person it runs as) and chooses **Take over**. Runs stop if that person is deactivated.
@@ -484,7 +498,7 @@ Each subsection below matches one area heading in the Health view, in page order
 
 ### Outcome and product mappings
 
-- "Outcome date needs a new field" or "Outcome date is incomplete", Fail, and "Outcome start date …", "Product family needs a new field", "Product line …", "Product tier …", or "Loss reason …", Warning: correct the setting as its [Map your fields](#map-your-fields) subsection describes. "Incomplete" means only one of the field and the label is set.
+- "Outcome date needs a new field" or "Outcome date is incomplete", Fail, and "Outcome start date …", "Product family needs a new field", "Product line …", "Product tier …", "Loss reason …", or "Win reason …", Warning: correct the setting as its [Map your fields](#map-your-fields) subsection describes. "Incomplete" means only one of the field and the label is set.
 - "Product family repeats Product line", Warning: set Product family to a different Product field, or clear it to use Product Family. Meanwhile the portfolio starts at Product line.
 - "Dashboards read Outcome date differently", Fail: a Revenue Execution defect, not a setting. Leave the setting as it is, report it ([Get help](#get-help)), and Recheck after the fix is applied. **Publish blocker:** no upgrade path is available yet.
 - "… is off", Info: the state after install; the row says how to turn it on.
@@ -545,10 +559,4 @@ Nothing changes unless the result says **Saved**.
 
 ## Get help
 
-Email [support@opsgs.com](mailto:support@opsgs.com) ([Support](support.md)). Include:
-
-1. The Revenue Execution version from Setup > Apps > Packaging > Installed Packages.
-2. Your edition, and whether multiple currencies are enabled.
-3. The area, status, and title of each Fail or Warning row, and the steps you already tried.
-
-Never send passwords, usernames, record IDs, or customer data.
+Email [support@opsgs.com](mailto:support@opsgs.com), with what [Support](support.md#what-to-include) asks you to include.

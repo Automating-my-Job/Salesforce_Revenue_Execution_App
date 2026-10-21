@@ -59,6 +59,8 @@ All settings are on the Default record: Setup > Custom Metadata Types > Revenue 
 | [Product tier](admin-guide.md#product-tier) label (typed in Configure Fields or Setup) | `Product_Tier_Label__c` | blank | | | |
 | [Loss reason](admin-guide.md#loss-reason) field | `Loss_Reason_Field_API_Name__c` | blank | | | |
 | [Loss reason](admin-guide.md#loss-reason) label (typed in Configure Fields or Setup) | `Loss_Reason_Label__c` | blank | | | |
+| [Win reason](admin-guide.md#win-reason) field | `Win_Reason_Field_API_Name__c` | blank | | | |
+| [Win reason](admin-guide.md#win-reason) label (typed in Configure Fields or Setup) | `Win_Reason_Label__c` | blank | | | |
 
 ## Risk tag decisions
 

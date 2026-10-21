@@ -4,18 +4,18 @@ From install to your first dashboard. Start in a sandbox. Each step links to the
 
 ## 1. Install for Admins Only
 
-Open the installation link as a System Administrator and choose **Install for Admins Only**. You give everyone else access in step 4. Before you start, check the [requirements](admin-guide.md#before-you-install).
+Open the installation link as a System Administrator and choose **Install for Admins Only**. You give everyone else access in step 3. Before you start, check the [requirements](admin-guide.md#before-you-install).
 
 ## 2. Give yourself access
 
-In Setup > Users > Permission Sets, assign yourself **Revenue Execution Configuration Health** (the Admin / Setup page) and **Revenue Execution Viewer** (the dashboards).
+In Setup > Users > Permission Sets (filter by **R**), assign yourself **Revenue Execution Configuration Health** (Admin / Setup) and **Revenue Execution Viewer** (dashboards).
 
 ## 3. Open Admin / Setup
 
 From the App Launcher, open **Admin / Setup**. It starts on **Get started**: four steps in the order that works. **Next** marks the step to do now, **Show how** opens its steps with a **Copy** button, and **Recheck** confirms each one.
 
 1. **Check core fields.** The defaults use Amount and Close Date. To report on another field, such as annual recurring revenue, pick it in **Configure Fields**, **Preview**, then **Save** ([Map your fields](admin-guide.md#map-your-fields)).
-2. **Assign Viewers.** Assign Revenue Execution Viewer to everyone who uses the dashboards ([Grant access](admin-guide.md#grant-access)).
+2. **Assign Viewers.** Everyone who uses the dashboards needs Revenue Execution Viewer; it shows them only the deals they can already see. In Setup > Users > Users, open each person > Permission Set Assignments > **Edit Assignments**, add it, and **Save** ([Grant access](admin-guide.md#grant-access)).
 3. **Give Viewers field access.** Get started lists the exact fields Viewers can't read yet. Grant Read on them in a permission set your company owns, and assign it to the same people.
 4. **Fix remaining issues.** Anything else Health finds appears here, with the fix on the row.
 
