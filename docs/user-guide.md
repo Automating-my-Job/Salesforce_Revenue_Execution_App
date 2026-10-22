@@ -1,6 +1,6 @@
 # Revenue Execution user guide
 
-Revenue Execution adds five read-only dashboards to Salesforce: Revenue Overview, Pipeline Schedule, Sales Outcomes, Product Overview, and Team Performance. They read the Opportunities you can already see and change nothing. This guide explains what each view shows and what its words mean. Administrators set it up with the [Admin guide](admin-guide.md).
+Revenue Execution adds five read-only dashboards to Salesforce: Revenue Overview, Pipeline Schedule, Sales Outcomes, Product Overview, and Team Performance. They read the Opportunities you can already see and change nothing. This guide explains each view and the words it uses. Administrators set it up with the [Admin guide](admin-guide.md).
 
 - [Controls on every dashboard](#controls-on-every-dashboard)
 - [Revenue Overview](#revenue-overview)
@@ -15,8 +15,8 @@ Revenue Execution adds five read-only dashboards to Salesforce: Revenue Overview
 ## Controls on every dashboard
 
 - **About this view (ⓘ):** three lines on what the page shows, and a link to its section here.
-- **Context line:** top left. It names your view, the period, and the date the figures were read.
-- **View:** **My results** shows deals credited to you. **Team**, **Leadership**, and **Executive** show every deal you can already see; they are labels for how you look, never extra access.
+- **Context line:** top left, naming your view, the period, and the date the figures were read.
+- **View:** **My results** shows deals credited to you. **Team**, **Leadership**, and **Executive** show every deal you can already see, never extra access. Its ⓘ: "Views follow your organization's reporting lines and access."
 - **Period:** Current quarter, Year to date, or Last 12 months; Sales Outcomes and Product Overview add **Custom**. Salesforce's own date decides today, in calendar or fiscal quarters as your administrator chose.
 - **Person:** outside My results, pick one person to see only their deals. The choice follows you across the four dashboards with a picker in this browser tab; My results clears it.
 - **Setup notes:** a short list of anything switched off or unavailable, and why. Nothing is guessed to fill a gap.

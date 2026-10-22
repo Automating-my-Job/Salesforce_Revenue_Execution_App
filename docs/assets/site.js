@@ -1,4 +1,4 @@
-// Revenue Execution docs: menu behavior, the home demo tabs, section links, step badges, and "On this page".
+// Revenue Execution docs: menu behavior, the home demo (tabs and its working model), section links, step badges, and "On this page".
 // First-party only; the pages read fine without it.
 (function () {
   'use strict';
@@ -16,7 +16,7 @@
     });
   }
 
-  // Home demo: the tabs switch between sample screens (arrow keys, Home and End move between tabs).
+  // Home demo: the tabs switch between the five dashboards (arrow keys, Home and End move between tabs).
   var demo = document.querySelector('[data-demo]');
   if (demo) {
     var tabs = Array.prototype.slice.call(demo.querySelectorAll('[role="tab"]'));
@@ -38,6 +38,107 @@
         select(tabs[(next + tabs.length) % tabs.length], true);
       });
     });
+
+    // The working model: View and Period swap in figures computed ahead of time from fictional data.
+    // As in the app, Leadership and Executive show what Team shows for this viewer; Pipeline Schedule
+    // keeps its own Period, which narrows open deals by close date.
+    var source = document.getElementById('demo-data');
+    var model = null;
+    try { model = source ? JSON.parse(source.textContent) : null; } catch (error) { model = null; }
+    if (model) {
+      var all = function (selector) { return Array.prototype.slice.call(demo.querySelectorAll(selector)); };
+      var views = { MY: 'My results', TEAM: 'Team', LEADERSHIP: 'Leadership', EXECUTIVE: 'Executive' };
+      var periods = { CQ: 'Current quarter', YTD: 'Year to date', L12M: 'Last 12 months' };
+      var state = { view: 'TEAM', period: 'L12M', pipeline: 'ALL' };
+
+      var fill = function (el, value) {
+        el.classList.toggle('m-off', value === null);
+        if (value === null) return;
+        if (Array.isArray(value)) {
+          value.forEach(function (key) {
+            var row = el.querySelector(':scope > [data-key="' + key + '"]');
+            if (row) el.appendChild(row);
+          });
+          return;
+        }
+        var o = typeof value === 'object' ? value : { t: value };
+        if ('t' in o) el.textContent = o.t;
+        if ('w' in o) el.style.width = o.w + '%';
+        if ('h' in o) el.style.height = o.h + '%';
+        if ('l' in o) el.style.left = o.l + '%';
+        if ('title' in o) el.title = o.title;
+        if ('tone' in o) el.setAttribute('data-tone', o.tone);
+        Object.keys(o.vars || {}).forEach(function (name) { el.style.setProperty(name, o.vars[name]); });
+      };
+
+      var render = function () {
+        all('[data-model]').forEach(function (panel) {
+          var id = panel.getAttribute('data-model');
+          var data = model[id];
+          var values = data[state.view === 'MY' ? 'MY' : 'TEAM'][id === 'pipeline' ? state.pipeline : state.period];
+          var index = {};
+          data.keys.forEach(function (key, i) { index[key] = values[i]; });
+          Array.prototype.forEach.call(panel.querySelectorAll('[data-k]'), function (el) {
+            var key = el.getAttribute('data-k');
+            if (key in index) fill(el, index[key]);
+          });
+          var context = panel.querySelector('[data-ctx]');
+          if (context) {
+            context.textContent = views[state.view] + ' · ' + (id === 'pipeline'
+              ? 'Open deals' + (state.pipeline === 'ALL' ? '' : ' · ' + periods[state.pipeline])
+              : periods[state.period]);
+          }
+        });
+        all('[data-view]').forEach(function (button) { button.setAttribute('aria-pressed', String(button.getAttribute('data-view') === state.view)); });
+        all('[data-period]').forEach(function (button) { button.setAttribute('aria-pressed', String(button.getAttribute('data-period') === state.period)); });
+        all('[data-pipeline-period]').forEach(function (button) { button.setAttribute('aria-pressed', String(button.getAttribute('data-pipeline-period') === state.pipeline)); });
+      };
+
+      // A row's children show while it and every row above it are open.
+      var showChildren = function (scope, key, show) {
+        Array.prototype.forEach.call(scope.querySelectorAll('[data-parent="' + key + '"]'), function (child) {
+          child.hidden = !show;
+          var toggle = child.querySelector('[data-toggle]');
+          if (toggle) showChildren(scope, child.getAttribute('data-key'), show && toggle.getAttribute('aria-expanded') === 'true');
+        });
+      };
+
+      demo.addEventListener('click', function (event) {
+        var target = event.target.closest('button');
+        if (!target || !demo.contains(target)) return;
+        var panel = target.closest('[data-model]');
+        if (target.hasAttribute('data-view')) {
+          state.view = target.getAttribute('data-view');
+        } else if (target.hasAttribute('data-period')) {
+          state.period = target.getAttribute('data-period');
+        } else if (target.hasAttribute('data-pipeline-period')) {
+          // Choosing the selected period again clears it, back to every open deal.
+          var period = target.getAttribute('data-pipeline-period');
+          state.pipeline = state.pipeline === period ? 'ALL' : period;
+        } else if (target.hasAttribute('data-section')) {
+          var section = target.getAttribute('data-section');
+          Array.prototype.forEach.call(panel.querySelectorAll('[data-section]'), function (button) {
+            button.setAttribute('aria-pressed', String(button === target));
+          });
+          Array.prototype.forEach.call(panel.querySelectorAll('[data-section-panel]'), function (block) {
+            block.hidden = block.getAttribute('data-section-panel') !== section;
+          });
+          return;
+        } else if (target.hasAttribute('data-toggle')) {
+          var open = target.getAttribute('aria-expanded') !== 'true';
+          target.setAttribute('aria-expanded', String(open));
+          showChildren(panel, target.getAttribute('data-toggle'), open);
+          return;
+        } else if (target.hasAttribute('data-goto')) {
+          select(document.getElementById(target.getAttribute('data-goto')), true);
+          return;
+        } else {
+          return;
+        }
+        render();
+      });
+      render();
+    }
   }
 
   var article = document.querySelector('.prose');
