@@ -84,6 +84,8 @@ Revenue Execution Viewer is designed to grant the app, the five dashboard tabs a
 
 ## Get started and Health
 
+{% include video.html id="fix-health" %}
+
 1. **Open it.** From the App Launcher, search for **Admin / Setup**. If you also hold Revenue Execution Viewer, it follows Opportunities in the Revenue Execution app. It opens on **Get started** until setup is ready, then on **Configure Fields**.
 2. **Work through Get started.** Four steps count toward "… of 4 done": Check core fields, Assign Viewers, Give Viewers field access, and Fix remaining issues. Choose optional fields and Deal Alerts are optional. **Next** marks the step to do now and its Health row or setting. **Show how** opens the steps (for field access, also the fields to grant) with **Copy**; **Review** opens the setting or Health row. **Waiting** means an earlier step or your access comes first; "Too many permission entries to check here" means check it by hand ([Troubleshooting](#troubleshooting)). When all four are done it reads **You're ready**; a later problem brings the steps back.
 3. **Check your access.** Health runs as you. Access checks need View Setup and Configuration; without it, rows end "can't check with your access".
@@ -361,6 +363,8 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 
 ### Loss reason
 
+{% include video.html id="close-reasons-setup" %}
+
 - **Controls:** the recorded reason shown for lost deals.
 - **Shows up:** Sales Outcomes **Close reasons**: the **Loss reasons** card. Product Overview Product mix: the leading recorded reason on a Needs help product, reason counts that each open their lost deals, and a column in its lost-deal list; the Sales Outcomes product lost-deal detail, headed "Current recorded" plus this field's name.
 - **Accepts:** a direct Opportunity picklist or text field (255 characters or fewer) that is filterable, groupable, and not a formula. Stage, Amount, Close Date, Next Step, Description, Name, Revenue Risk, and similar fields are rejected. Set both the field and the label.
@@ -426,6 +430,8 @@ To turn a tag off, clear **Active** and click **Save**.
 ## Deal Alerts
 
 Deal Alerts emails deal owners, their managers and people you choose when open deals are past due or missing a next step, and monthly when products need help or a salesperson's win rate is under your threshold. It ships off: no alert is sent and nothing is scheduled until you turn it on.
+
+{% include video.html id="deal-alerts" %}
 
 1. **Give it to administrators only.** Assign **Revenue Execution Deal Alerts** (`OpsGS__Revenue_Execution_Deal_Alerts`, the tab) and **Revenue Execution Deal Alerts Manager** (`OpsGS__Revenue_Execution_Deal_Alerts_Manager`, changes) only to administrators who have View Setup and Configuration and see every opportunity (View All Data, or View All on Opportunities). Grant the custom permission **Revenue Execution Manage Deal Alerts** through a permission set your org owns; without it the tab is read-only. A permission set that grants View Setup and Configuration must also grant View Roles. Saving also needs Modify Metadata Through Metadata API Functions. With Revenue Execution Viewer too, the tab is last in the Revenue Execution app; otherwise use the App Launcher.
 2. **Let Salesforce send and deliver.** Setup > Deliverability: Access level **All email**. Then verify the sender, because Salesforce silently drops mail from an unverified one: your own email address (in your personal settings, Personal Information; Salesforce emails you a verification link), or an organization-wide address (Setup > **Organization-Wide Addresses**) that you choose in Deal Alerts > **Settings**. Also authenticate your domain with DKIM keys (Setup > **DKIM Keys**) or Authorized Email Domains. Deal Alerts' Get started > **Check** confirms Salesforce allows sending and an organization-wide sender is verified, and warns if your own address shows unverified; only an arriving test confirms delivery.

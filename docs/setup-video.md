@@ -3,12 +3,34 @@
 Admin / Setup's **Get started**, one chapter per step. Each chapter links its section of the [Admin guide](admin-guide.md); the [Quick start](quick-start.md) has the same steps in writing.
 
 <!-- setup-video -->
-
-The video is being recorded. Until it is published, each chapter below lists what it shows.
-
+{% include video.html id="revenue-execution-setup" preload="metadata" %}
+<ol class="chapters">
+<li><a href="#before-you-start">Before you start</a> <span>0:00</span></li>
+<li><a href="#get-started">Get started</a> <span>0:33</span></li>
+<li><a href="#check-core-fields">Check core fields</a> <span>0:48</span></li>
+<li><a href="#assign-viewers">Assign Viewers</a> <span>1:09</span></li>
+<li><a href="#give-viewers-field-access">Give Viewers field access</a> <span>1:34</span></li>
+<li><a href="#fix-remaining-issues">Fix remaining issues</a> <span>1:51</span></li>
+<li><a href="#see-it-on-a-dashboard">See it on a dashboard</a> <span>2:07</span></li>
+<li><a href="#deal-alerts">Deal Alerts</a> <span>2:22</span></li>
+</ol>
+<script>
+(function () {
+  var times = {"before-you-start":0,"get-started":33,"check-core-fields":48,"assign-viewers":69,"give-viewers-field-access":94,"fix-remaining-issues":111,"see-it-on-a-dashboard":127,"deal-alerts":142};
+  var video = document.getElementById('video-revenue-execution-setup');
+  function seek() {
+    var id = window.location.hash.slice(1);
+    if (!Object.prototype.hasOwnProperty.call(times, id)) return;
+    video.currentTime = times[id];
+    video.scrollIntoView({ block: 'center' });
+  }
+  window.addEventListener('hashchange', seek);
+  if (video.readyState > 0) seek(); else video.addEventListener('loadedmetadata', seek);
+})();
+</script>
 <!-- /setup-video -->
 
-<!-- chapter-times: before-you-start=0 get-started=16 check-core-fields=30 assign-viewers=60 give-viewers-field-access=84 fix-remaining-issues=120 see-it-on-a-dashboard=128 deal-alerts=150 -->
+<!-- chapter-times: before-you-start=0 get-started=33 check-core-fields=48 assign-viewers=69 give-viewers-field-access=94 fix-remaining-issues=111 see-it-on-a-dashboard=127 deal-alerts=142 -->
 
 ## Before you start
 

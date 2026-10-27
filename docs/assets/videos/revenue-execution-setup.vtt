@@ -1,0 +1,115 @@
+WEBVTT
+
+00:00:00.319 --> 00:00:02.699
+Revenue Execution is built for teams closing
+
+00:00:02.699 --> 00:00:04.939
+up to 25,000 deals a year.
+
+00:00:05.399 --> 00:00:10.099
+Closing more? Talk to us, and we’ll set up reporting for your volume.
+
+00:00:10.754 --> 00:00:12.934
+First, give yourself access.
+
+00:00:13.434 --> 00:00:17.554
+Open your own user, and edit its permission set assignments.
+
+00:00:17.701 --> 00:00:23.141
+Add Revenue Execution Configuration Health and Revenue Execution Viewer, and save.
+
+00:00:23.685 --> 00:00:28.565
+Then open Revenue Execution from the App Launcher, and choose Admin / Setup.
+
+00:00:33.686 --> 00:00:35.866
+Admin / Setup opens on “Get started”:
+
+00:00:35.866 --> 00:00:38.941
+every setup step, in the order that works.
+
+00:00:38.941 --> 00:00:41.352
+“Next” marks the step to do now.
+
+00:00:41.352 --> 00:00:45.532
+Choose “Show how” to see its steps, with the Setup path ready to copy.
+
+00:00:49.086 --> 00:00:52.819
+To report on another field, open “Configure Fields”.
+
+00:00:52.819 --> 00:00:57.894
+Open “Deal value”, and choose your field, such as annual recurring revenue.
+
+00:00:57.894 --> 00:01:01.102
+“Preview” shows what changes before anything is saved.
+
+00:01:01.102 --> 00:01:03.900
+“Save”, check the change, and confirm.
+
+00:01:03.900 --> 00:01:06.380
+Every dashboard now uses it.
+
+00:01:09.719 --> 00:01:12.219
+Next, give your team access.
+
+00:01:12.939 --> 00:01:17.034
+Everyone who uses the dashboards needs Revenue Execution Viewer.
+
+00:01:17.034 --> 00:01:20.506
+Open each person, and edit their permission set assignments.
+
+00:01:20.506 --> 00:01:23.666
+Add Revenue Execution Viewer, and save.
+
+00:01:24.530 --> 00:01:27.587
+Back in Admin / Setup, “Recheck” confirms it.
+
+00:01:27.587 --> 00:01:30.947
+Team Performance follows the Manager set on each user.
+
+00:01:34.452 --> 00:01:37.630
+Get started shows the fields your Viewers can’t read yet.
+
+00:01:37.630 --> 00:01:40.490
+Give them Read access with a permission set your
+
+00:01:40.490 --> 00:01:43.307
+company owns, and assign it to every Viewer.
+
+00:01:43.307 --> 00:01:46.067
+Use “Copy” to take these steps with you.
+
+00:01:46.352 --> 00:01:48.592
+Then “Recheck”, and you’re ready.
+
+00:01:52.219 --> 00:01:56.210
+“Health” checks access and settings, with the fix on each row.
+
+00:01:56.210 --> 00:01:59.350
+No failures and no warnings means setup is done.
+
+00:01:59.350 --> 00:02:04.850
+Info rows, like these for optional Deal Alerts, don’t affect the dashboards.
+
+00:02:08.352 --> 00:02:12.072
+Your team now sees its own deals, read as each person,
+
+00:02:12.072 --> 00:02:14.966
+with nothing changed in Salesforce.
+
+00:02:14.966 --> 00:02:16.855
+Start where deals are stuck.
+
+00:02:16.855 --> 00:02:20.186
+The how-to videos show each dashboard.
+
+00:02:23.386 --> 00:02:27.669
+Optional: Deal Alerts emails owners when deals slip.
+
+00:02:27.669 --> 00:02:30.461
+It stays off until you turn it on.
+
+00:02:30.461 --> 00:02:34.081
+“Preview” shows who would get what, before anything is sent.
+
+00:02:34.547 --> 00:02:40.447
+That’s setup. Every step is at revenue.opsgs.com.

@@ -1,4 +1,4 @@
-// Revenue Execution docs: menu behavior, the home demo (tabs and its working model), section links, step badges, and "On this page".
+// Revenue Execution docs: menu behavior, the home demo (tabs and its working model), card videos, section links, step badges, and "On this page".
 // First-party only; the pages read fine without it.
 (function () {
   'use strict';
@@ -15,6 +15,31 @@
       if (event.key === 'Escape') menu.open = false;
     });
   }
+
+  // Home cards: a Watch button opens the card's video in a dialog; closing it pauses the video.
+  Array.prototype.forEach.call(document.querySelectorAll('dialog[data-card]'), function (dialog) {
+    var link = document.querySelector('.views li a[href$="#' + dialog.getAttribute('data-card') + '"]');
+    var video = dialog.querySelector('video');
+    if (!link || !video || typeof dialog.showModal !== 'function') return;
+    var button = document.createElement('button');
+    var length = document.createElement('span');
+    button.type = 'button';
+    button.className = 'watch';
+    button.textContent = 'Watch';
+    button.setAttribute('aria-label', 'Watch: ' + dialog.getAttribute('aria-label'));
+    length.textContent = dialog.getAttribute('data-length');
+    button.appendChild(length);
+    button.addEventListener('click', function () {
+      dialog.showModal();
+      var playing = video.play();
+      if (playing && playing.catch) playing.catch(function () {});
+    });
+    dialog.addEventListener('click', function (event) {
+      if (event.target === dialog) dialog.close();
+    });
+    dialog.addEventListener('close', function () { video.pause(); });
+    link.parentNode.appendChild(button);
+  });
 
   // Home demo: the tabs switch between the five dashboards (arrow keys, Home and End move between tabs).
   var demo = document.querySelector('[data-demo]');

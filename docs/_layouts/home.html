@@ -16,6 +16,7 @@
 {{ parts | first }}
       </div>
       <figure class="hero-art">{% include hero-art.html %}</figure>
+      <div class="hero-video">{% include video.html id="where-is-your-revenue-stuck" %}</div>
     </div>
   </section>
   <section class="views">
@@ -23,6 +24,12 @@
 {%- for part in parts offset: 1 %}
 <h2{{ part }}
 {%- endfor %}
+      {%- for card in site.data.home.cards %}
+      <dialog class="video-dialog" data-card="{{ card.card }}" data-length="{{ site.data.videos[card.video].length }}" aria-label="{{ site.data.videos[card.video].title }}">
+        <form method="dialog"><button class="video-close" aria-label="Close">×</button></form>
+        {% include video.html id=card.video %}
+      </dialog>
+      {%- endfor %}
     </div>
   </section>
   <section class="glance">

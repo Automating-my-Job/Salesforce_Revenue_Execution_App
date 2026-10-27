@@ -1,0 +1,62 @@
+# Site videos. Each id names <id>.mp4, <id>.vtt (captions) and <id>.jpg (poster) in assets/videos/,
+# copied there by the publisher's --videos option. title shows under the player; alt describes the poster.
+revenue-execution-setup:
+  title: Set up Revenue Execution
+  alt: Title card, After you install, give yourself access
+  length: "2:42"
+where-is-your-revenue-stuck:
+  title: Where is your revenue stuck?
+  alt: Pipeline Schedule, with a late deal's owner, days late and next step
+  length: "0:39"
+where-things-stand:
+  title: See where your pipeline stands
+  alt: Revenue Overview, with open pipeline, past-due deals and booked value
+  length: "0:33"
+stalled-deals:
+  title: Find the stalled deals to act on this week
+  alt: Pipeline Schedule, with an escalated deal's owner, lateness and next step
+  length: "0:34"
+stalled-deals-landing:
+  title: Pipeline Schedule
+  alt: Pipeline Schedule, with an escalated deal's owner, lateness and next step
+  length: "0:41"
+close-reasons:
+  title: See the reasons you win and lose
+  alt: Sales Outcomes Close reasons, with the loss reasons your team recorded
+  length: "0:31"
+close-reasons-landing:
+  title: Sales Outcomes
+  alt: Sales Outcomes Close reasons, with the loss reasons your team recorded
+  length: "0:37"
+products-not-selling:
+  title: Find the products that aren't selling
+  alt: Product Overview's product mix, with a product flagged Needs help
+  length: "0:30"
+products-not-selling-landing:
+  title: Product Overview
+  alt: Product Overview's product mix, with a product flagged Needs help
+  length: "0:37"
+one-on-one:
+  title: Prepare a one-on-one on the right deals
+  alt: Team Performance, one row per person with late, escalated and pushed deals
+  length: "0:34"
+one-on-one-landing:
+  title: Team Performance
+  alt: Team Performance, one row per person with late, escalated and pushed deals
+  length: "0:41"
+close-reasons-setup:
+  title: Show the reasons your team records
+  alt: Sales Outcomes Close reasons, before loss and win reason fields are set up
+  length: "0:27"
+fix-health:
+  title: Fix what Health flags
+  alt: Admin / Setup Health, with a warning row opened to show the fix
+  length: "0:24"
+deal-alerts:
+  title: Get late deals followed up, without chasing
+  alt: Deal Alerts Preview, showing who would get an email today
+  length: "0:28"
+deal-alerts-landing:
+  title: Deal Alerts
+  alt: Deal Alerts Preview, showing who would get an email today
+  length: "0:35"

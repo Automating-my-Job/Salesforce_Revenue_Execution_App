@@ -28,6 +28,8 @@ Revenue Execution adds five read-only dashboards to Salesforce: Revenue Overview
 
 The first page: where pipeline stands today and how closed deals went.
 
+{% include video.html id="where-things-stand" %}
+
 - **Open pipeline:** the value of open deals as of today. It is pipeline, never booked or recognized revenue.
 - **Past due:** open deals whose close date has passed. **Review** opens Pipeline Schedule. Deals with no date are counted apart.
 - **Booked value:** the value of deals won in the period. It is the deal amount, not recognized revenue.
@@ -39,6 +41,8 @@ Open pipeline is a snapshot of today, while won and lost follow the period you p
 ## Pipeline Schedule
 
 Which open deals need action, who owns them, and when they close.
+
+{% include video.html id="stalled-deals" %}
 
 - **Cards:** the portfolio in the chosen date range, **Past due**, **Current quarter**, and **Next quarter**, each with a deal count and value.
 - **Closing periods:** deals and value by quarter. Set **From** and **Through**, or pick a Period.
@@ -55,6 +59,8 @@ A deal is **past due** when it is open and its close date is before today. Close
 
 How closed deals went in the period: only won and lost deals count.
 
+{% include video.html id="close-reasons" %}
+
 - **Cards:** **Won**, **Lost**, **Win rate** ("N won of D closed", or **Small sample** with its counts), and **Booked value** (deal amounts, not recognized revenue).
 - **Closed-deal flow:** won and lost bars by month, with a monthly table beneath.
 - **Closing detail:** **Avg. days to win** (start date to close, won deals) and **Avg. observed push** (how far close dates moved later, from the history Salesforce kept).
@@ -69,6 +75,8 @@ These figures describe what happened, never a ranking or score. The current owne
 
 What is selling, what is losing, and which products need help.
 
+{% include video.html id="products-not-selling" %}
+
 - **Cards:** Won, Lost, Open, and Past due product-line value. "n deals · m products" are separate counts: one deal can hold several products.
 - **Product portfolio:** Family › Product line › Product, in money, each value with a bar on one scale. Click a head to sort; hover a figure for its definition.
 - **Product mix:** the same tree in counts and rates: **In wins**, **In losses**, **Attach rate**, **Win rate**, **Days to win**, and **Needs help** (more value lost than won, on enough closed deals).
@@ -79,6 +87,8 @@ What is selling, what is losing, and which products need help.
 ## Team Performance
 
 The people in your reporting line, highest won value first, with the open deals worth a conversation.
+
+{% include video.html id="one-on-one" %}
 
 - **Who you see:** the people who report to you in Salesforce (each user's Manager), and their teams below them. If no one reports to you, you see your own page. An administrator can grant "Team Performance: all teams" for a view from the top.
 - **Table:** Won, Win rate, Avg deal, Open, then Past due, Escalated, No next step, and Pushed (open deals whose close date has moved to a later month at least once). Click any column head to sort. A count above zero is amber. Under the minimum sample, win rate reads "3 of 7", never a percentage.

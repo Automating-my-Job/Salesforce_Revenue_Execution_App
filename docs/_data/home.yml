@@ -8,3 +8,17 @@ setup:
     anchor: 3-open-admin--setup
   - title: Check a dashboard
     anchor: 4-check-a-dashboard
+# Landing page dashboard cards: the user-guide section each card links (card) and the video its Watch button plays.
+cards:
+  - card: revenue-overview
+    video: where-things-stand
+  - card: pipeline-schedule
+    video: stalled-deals-landing
+  - card: sales-outcomes
+    video: close-reasons-landing
+  - card: product-overview
+    video: products-not-selling-landing
+  - card: team-performance
+    video: one-on-one-landing
+  - card: deal-alerts
+    video: deal-alerts-landing
