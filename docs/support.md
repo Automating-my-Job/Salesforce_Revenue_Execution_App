@@ -2,7 +2,7 @@
 
 Email **[support@opsgs.com](mailto:support@opsgs.com)**.
 
-Most setup questions are answered on the page: open Admin / Setup > **Health**, choose **All**, and follow the **To fix** steps on each row. The [Admin guide](admin-guide.md#troubleshooting) explains every row.
+Health answers most setup questions. Open Admin / Setup > **Health**, choose **All**, and follow the **To fix** steps on each row. The [Admin guide](admin-guide.md#troubleshooting) explains every row.
 
 ## What to include
 
@@ -15,7 +15,7 @@ Never send passwords, usernames, record IDs, screenshots of customer data, or ex
 
 ## Security issues
 
-To report a suspected security issue, email support@opsgs.com with "Security" in the subject. Please don't post it publicly.
+Report a suspected security issue to support@opsgs.com with "Security" in the subject. Don't post it publicly.
 
 ## More
 

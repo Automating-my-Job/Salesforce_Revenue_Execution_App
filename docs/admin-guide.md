@@ -1,6 +1,6 @@
 # Revenue Execution admin guide
 
-This guide is hosted at [revenue.opsgs.com](https://revenue.opsgs.com/admin-guide.html), which Admin / Setup links to; Viewers have the [User guide](user-guide.md).
+Admin / Setup links to this guide at [revenue.opsgs.com](https://revenue.opsgs.com/admin-guide.html). Viewers have the [User guide](user-guide.md).
 
 Follow the sections in order:
 
@@ -58,7 +58,7 @@ When the package is released:
 
 Admin / Setup > **Get started** lists this work in order: check the core fields ([Map your fields](#map-your-fields)), assign Viewers, then grant field access.
 
-Revenue Execution Viewer is designed to grant the app, the five dashboard tabs and their Apex classes, Read on Account, Opportunity, Opportunity Product, Price Book, and Product, and Read on the three included Opportunity fields and some Product and Opportunity Product fields. It never grants Edit. Revenue Execution Configuration Health grants only the Admin / Setup tab and its Apex class. Revenue Execution Mapping Editor grants only the Apex class that saves mappings: no tab, no data, no system permission.
+As shipped, Revenue Execution Viewer grants the app, the five dashboard tabs and their Apex classes, Read on Account, Opportunity, Opportunity Product, Price Book, and Product, and Read on the three included Opportunity fields and some Product and Opportunity Product fields. It never grants Edit. Revenue Execution Configuration Health grants only the Admin / Setup tab and its Apex class. Revenue Execution Mapping Editor grants only the Apex class that saves mappings: no tab, no data, no system permission.
 
 1. **Assign the Viewer to dashboard users.** People see the dashboards only once they hold Revenue Execution Viewer, and it shows them only the deals they can already see. For each seller, manager, and executive: Setup > Users > Users > the person > Permission Set Assignments > **Edit Assignments**. Add Revenue Execution Viewer and click **Save**. Admin / Setup > Get started > **Recheck** confirms it.
    - Or from the permission set: Setup > Users > Permission Sets (filter by **R**) > Revenue Execution Viewer > Manage Assignments > **Add Assignment**. In a new org, its list may show only people you opened recently.
@@ -85,33 +85,33 @@ Revenue Execution Viewer is designed to grant the app, the five dashboard tabs a
 
 {% include video.html id="fix-health" %}
 
-1. **Open it.** From the App Launcher, search for **Admin / Setup**. If you also hold Revenue Execution Viewer, it follows Opportunities in the Revenue Execution app. It opens on **Get started** until setup is ready, then on **Configure Fields**.
-2. **Work through Get started.** Four steps count toward "… of 4 done": Check core fields, Assign Viewers, Give Viewers field access, and Fix remaining issues. Choose optional fields and Deal Alerts are optional. **Next** marks the step to do now and its Health row or setting. **Show how** opens the steps (for field access, also the fields to grant) with **Copy**; **Review** opens the setting or Health row. **Waiting** means an earlier step or your access comes first; "Too many permission entries to check here" means check it by hand ([Troubleshooting](#troubleshooting)). When all four are done it reads **You're ready**; a later problem brings the steps back.
-3. **Check your access.** Health runs as you. Access checks need View Setup and Configuration; without it, rows end "can't check with your access".
-4. **Pick a view.** Besides **Get started**, **Configure Fields** shows each setting, what it is for, where it shows up, and a field list or values ([Use Configure Fields](#use-configure-fields)). **Health** lists every check below.
-5. **Read the Health line.** Under the Health heading, it shows the date checked and how many Viewers were checked: up to 25 recent Viewer holders, never named.
-6. **Read the counts.** The summary shows how many rows are Fail, Warning, Info, and Pass.
-7. **Choose a filter.**
+1. From the App Launcher, search for **Admin / Setup**. If you also hold Revenue Execution Viewer, it follows Opportunities in the Revenue Execution app. It opens on **Get started** until setup is ready, then on **Configure Fields**.
+2. Work through **Get started**. Four steps count toward "… of 4 done": Check core fields, Assign Viewers, Give Viewers field access, and Fix remaining issues. Choose optional fields and Deal Alerts are optional steps. **Next** marks the step to do now and its Health row or setting. **Show how** opens the steps (for field access, also the fields to grant) with **Copy**; **Review** opens the setting or Health row. **Waiting** means an earlier step or your access comes first; "Too many permission entries to check here" means check it by hand ([Troubleshooting](#troubleshooting)). When all four are done it reads **You're ready**; a later problem brings the steps back.
+3. Health runs as you, so access checks need View Setup and Configuration on your user; without it, rows end "can't check with your access".
+4. Besides **Get started**, **Configure Fields** shows each setting, what it is for, where it shows up, and a field list or values ([Use Configure Fields](#use-configure-fields)). **Health** lists every check below.
+5. The line under the Health heading shows the date checked and how many Viewers were checked: up to 25 recent Viewer holders, never named.
+6. The summary counts the Fail, Warning, Info, and Pass rows.
+7. Choose a filter:
    - **Needs attention** (the default) shows every Fail and Warning, rows Health couldn't fully check, and Info rows that still need an action: field-access gaps before a Viewer other than you is checked, a Viewer whose actual access differs, permission set groups not yet recalculated, and you as the only Viewer. With none, it reads "Nothing needs attention."
    - **All** shows every row, including Pass and Info rows that carry steps and optional features that are off. Use All before you sign off.
-8. **Read each status.**
+8. Each row has a status:
    - **Fail:** a dashboard is blocked, or a permission set doesn't match what Revenue Execution expects. Fix these first.
    - **Warning:** a feature is hidden or degraded. Fix it or turn the feature off.
    - **Info:** a fact or a choice. Some Info rows carry steps.
    - **Pass:** checked and working.
-9. **Read the basis note** when a row has one.
+9. Some rows add a basis note:
    - "Could not verify with your access": get View Setup and Configuration, then Recheck.
    - "Not fully checked": the row was skipped or cut short to stay within Salesforce limits. A row ending "not checked this time" needs only a Recheck; one ending "too many entries to check" repeats on every Recheck, so check it by hand ([Troubleshooting](#troubleshooting)).
    - "Not applicable until the prerequisite above is fixed": fix the earlier row, then Recheck.
-10. **Read the row.** Rows are grouped by area, Access and assignment first, and start collapsed to their status, a short title saying what is wrong, and how many **To fix** steps they hold (for example "3 steps"); click one, or press Enter or Space, to open it. **To fix** comes first: the action, the Setup path, then Recheck. Then come the settings and fields it acts on (Configuration; fields by label), the impact, and the dashboards affected. **Details** names the guide section; **Open setting** opens that setting's card in Configure Fields.
-11. **Recheck after every change.** Health always reads fresh. Dashboards cache their figures, so Viewers refresh their page after a fix.
+10. Rows are grouped by area, Access and assignment first, and start collapsed to their status, a short title saying what is wrong, and how many **To fix** steps they hold (for example "3 steps"); click one, or press Enter or Space, to open it. **To fix** comes first: the action, the Setup path, then Recheck. Then come the settings and fields it acts on (Configuration; fields by label), the impact, and the dashboards affected. **Details** names the guide section; **Open setting** opens that setting's card in Configure Fields.
+11. Recheck after every change. Health always reads fresh. Dashboards cache their figures, so Viewers refresh their page after a fix.
 
 ## Map your fields
 
 Every setting is a field on one record, the Default Revenue Execution Setting.
 
-- **Default setting path:** Setup > Custom Metadata Types > Revenue Execution Setting > Manage Records > Default > Edit. In Quick Find, enter Custom Metadata Types.
-- **Finding a field's API name:** Setup > Object Manager > Opportunity (or Product, or Account) > Fields & Relationships. The Field Name column shows the API name, such as `CloseDate` or a custom field ending in `__c`.
+- The Default setting is at Setup > Custom Metadata Types > Revenue Execution Setting > Manage Records > Default > Edit. In Quick Find, enter Custom Metadata Types.
+- To find a field's API name, open Setup > Object Manager > Opportunity (or Product, or Account) > Fields & Relationships. The Field Name column shows it, such as `CloseDate` or a custom field ending in `__c`.
 - Enter the API name only: no object prefix, no relationship path such as `Account.Name`, and no spaces.
 - Viewers see the label settings. Use plain business wording, up to 80 characters.
 - On Save, Setup rejects invalid deal-size bands, close-timing days, and sample sizes. Health checks the rest.
@@ -121,12 +121,12 @@ Every setting is a field on one record, the Default Revenue Execution Setting.
 
 ### Use Configure Fields
 
-Configure Fields helps you choose fields and settings, and saves them when your user may; otherwise save them in Setup.
+Configure Fields lists the fields and values each setting accepts. It saves your choices when your user is allowed to; otherwise, save them in Setup.
 
 1. **Open it.** In Admin / Setup, choose **Configure Fields**. Core settings come first; the rest are grouped by the dashboard they mainly affect. Each card starts collapsed, showing its name, status, and current value; click it, or press Enter or Space, to open it, and several can stay open. An open card shows what the setting is for, its current value, **Where it shows up**, and what happens when it is blank or off. A card also opens when **Open setting**, a Preview, or a Save result points to it.
 2. **Choose a field.** Click the field box or its arrow, or press Down Arrow, to list every field that passes that dashboard's own checks: label, API name, type, and how many checked Viewers can read it. Type to narrow it; use the arrow keys and Enter to choose, and Escape to close. **Not listed?** explains why other fields you can read don't qualify. Fields you can't read appear only if you have View Setup and Configuration (never for Deal value, Pipeline date, or Owner credit).
 3. **Choose a setting.** Quarter basis, Close history, Escalation manager, and Pipeline products list the values Setup offers, with the current one selected. Press Tab to reach the list and the arrow keys to pick a value, or click one. **Undo** returns to the saved value.
-4. **Labels.** Type the wording you want in the label box next to the field, up to the character limit it shows; leave it alone to keep what is there. An empty box is not accepted: to clear a label, turn its field off, or clear it in Setup. If a label is blank and you type nothing, the steps propose the field's own label. Labels appear on the dashboards, and Salesforce records label changes in the Setup Audit Trail in plain text.
+4. **Edit labels.** Type the wording you want in the label box next to the field, up to the character limit it shows; leave it alone to keep what is there. An empty box is not accepted: to clear a label, turn its field off, or clear it in Setup. If a label is blank and you type nothing, the steps propose the field's own label. Labels appear on the dashboards, and Salesforce records label changes in the Setup Audit Trail in plain text.
 5. **Preview.** Preview checks all your choices together, including an outcome start date that matches the outcome date or a Product family that matches Product line, and warns if a choice would stop a dashboard from loading. Choosing Salesforce fiscal quarters also checks your fiscal periods; if they need attention, see [Periods](#periods). If a choice is unusable, Preview names the setting; undo it or choose again. For each field you change, it also shows how many of the records you can see have a value now and with your choice, for example "412 of 530 open deals have a value", and where the rest would show. "Only you have Revenue Execution Viewer" means no real Viewer was checked yet.
 6. **Save.** If your user can save here, **Save** lists each setting's prior and new value; click **Save these changes** to write them, or **Cancel** to go back. Save stays off while a change would stop dashboards for Viewers, such as a deal value field they can't read; grant the access Preview lists, then Preview again. Save stays off until that save is checked, usually within seconds. The result names what happened; see [Saving in Configure Fields](#saving-in-configure-fields). **Undo this save** puts back every previous value it can, and **Restore previous value** one setting, through the same preview and save; a value this page can't list is restored in Setup (for an explicit Amount, Close Date, Owner, Next Step, or Product Family, the blank option does the same). Otherwise use **Save in Setup**, which lists the Setup path and, for each change, the setting's label and API name, what to enter or choose (a setting's value as Setup shows it, with its API value), the prior value, and a **To undo** list. Click **Copy steps**, or select the text if copying isn't allowed. Keep this page open while you save.
 7. **Check saved value.** It confirms each saved value and, once all are saved, reloads the cards. If you left the page, or for other settings, use **Health**.
@@ -136,10 +136,10 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 
 ### What Viewers see after a change
 
-- **The dashboards use your names.** Filters, column headers, and row labels show each field's own label from your org, and picklist filters show your own value labels. Where a setting has a label, that label wins (one exception under [Outcome date](#outcome-date)). The English names in this guide are the defaults a new Salesforce org ships with, not a promise: after you rename Owner to Account Executive, the filter this guide calls Owner reads Account Executive. Search by what a control does, not only by its name here.
+- The dashboards use your names. Filters, column headers, and row labels show each field's own label from your org, and picklist filters show your own value labels. Where a setting has a label, that label wins (one exception under [Outcome date](#outcome-date)). The English names in this guide are the defaults a new Salesforce org ships with, not a promise: after you rename Owner to Account Executive, the filter this guide calls Owner reads Account Executive. Search by what a control does, not only by its name here.
 - Stage always shows your label; a [stage group](#stage-group) only regroups it. Stage colors on Pipeline Schedule follow each stage's won status and forecast category in your stage setup, never its name.
-- **Viewers can focus on one person.** In Team, Leadership, and Executive, each dashboard has a person picker named after your [Owner credit](#owner-credit) field. The person stays chosen across the dashboards in that browser tab; My results clears it.
-- **Open pages say a setting changed.** After you save in Setup, anyone with a Revenue Execution page already open sees "A Revenue Execution setting changed. Refresh to use the new configuration." next to a **Refresh** button. No figure, filter, or name on that page moves until someone presses Refresh, so nobody's numbers change under them mid-task. Admin / Setup shows the same notice; its Refresh is the Recheck you already use.
+- Viewers can focus on one person. In Team, Leadership, and Executive, each dashboard has a person picker named after your [Owner credit](#owner-credit) field. The person stays chosen across the dashboards in that browser tab; My results clears it.
+- Open pages say when a setting changed. After you save in Setup, anyone with a Revenue Execution page already open sees "A Revenue Execution setting changed. Refresh to use the new configuration." next to a **Refresh** button. No figure, filter, or name on that page moves until someone presses Refresh, so nobody's numbers change under them mid-task. Admin / Setup shows the same notice; its Refresh is the Recheck you already use.
 - If you put a setting back the way it was before anyone pressed Refresh, the notice goes away by itself.
 
 ### Deal value
@@ -232,7 +232,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **Accepts:** Opportunity stage history (`OPPORTUNITY_HISTORY`), which reads close-date changes despite its label, or Disabled (`DISABLED`). Viewers read history through their Opportunity access.
 - **Default:** Opportunity stage history.
 - **If blank or invalid:** the markers and the push figure are hidden, with a note. Nothing is blocked.
-- **Tracked only while [Pipeline date](#pipeline-date) uses Close Date.**
+- Tracked only while [Pipeline date](#pipeline-date) uses Close Date.
 - **Health:** Settings, "Close-date history …" or "Close history …".
 - **Edit:** Default setting > Close History Source (`Close_History_Source__c`).
 
@@ -441,7 +441,7 @@ Deal Alerts emails deal owners, their managers and people you choose when open d
 7. **Turn off** at any time; nothing more is sent. Turn it off before a Deal Alerts deploy, upgrade or uninstall, and on again afterwards.
 8. **Take over** when the administrator it runs as leaves or loses access: another administrator with the same access previews, confirms a test for the sender (their own when emails come from the person it runs as) and chooses **Take over**. Runs stop if that person is deactivated.
 
-**What is sent, to whom.** Only to active internal users, by user record, never to an email address. The owner gets one email per deal, with every reason, and after 10 in a day one list for the rest. Managers, managers' managers and people named in a rule get one summary a day. Each email shows only the deals and fields that person can open; frozen users get nothing. When a day can't run, the administrator it runs as gets "Deal Alerts did not send today" with the reason and the fix. The send log keeps who got which kind of email for the retention period, never the content.
+**Who gets what.** Email goes only to active internal users, by user record, never to an email address. The owner gets one email per deal, with every reason, and after 10 in a day one list for the rest. Managers, managers' managers and people named in a rule get one summary a day. Each email shows only the deals and fields that person can open; frozen users get nothing. When a day can't run, the administrator it runs as gets "Deal Alerts did not send today" with the reason and the fix. The send log keeps who got which kind of email for the retention period, never the content.
 
 **Monthly checks.** On the first send day of each month, product and win-rate rules check each recipient's own view: figures count only deals that person can open and match their Product Overview or Sales Outcomes Team view, which the email links to. Someone whose view is over that dashboard's limits, or who lacks Revenue Execution Viewer or a field it reads, gets nothing and is counted on the rule card. A salesperson who gets their own win rate sees only their own figure, matching their Sales Outcomes My results. Nothing about a result is stored.
 

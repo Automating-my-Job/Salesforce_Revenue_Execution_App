@@ -1,5 +1,5 @@
 title: Revenue Execution
-description: Read-only Salesforce dashboards for pipeline accountability and executive reporting.
+description: "Read-only Salesforce dashboards: late deals and their owners, close reasons, and products that lose."
 # The site's own _layouts/; GitHub Pages applies jekyll-theme-primer unless theme is null.
 theme: null
 plugins:

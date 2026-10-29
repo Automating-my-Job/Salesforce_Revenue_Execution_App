@@ -1,12 +1,12 @@
 # Know which deals need action, and who owns the fix.
 
-Revenue Execution reads your Salesforce deals as each user and shows what's late, how deals closed, and where to coach.
+Revenue Execution reads the deals each person can see in Salesforce. It shows what's late, how deals closed, and what to cover in one-on-ones.
 
 [Become a design partner](mailto:support@opsgs.com?subject=Design%20partner) [Quick start](quick-start.md) [Admin guide](admin-guide.md)
 
-## Five dashboards. Read-only by design.
+## Five read-only dashboards
 
-Runs as each user. Your own fields. No outside calls.
+Your own field names. No outside calls.
 
 - [Revenue Overview](user-guide.md#revenue-overview)<br>Where do we stand?
 - [Pipeline Schedule](user-guide.md#pipeline-schedule)<br>What's late, and who owns it?

@@ -1,10 +1,10 @@
 # Revenue Execution quick start
 
-From install to your first dashboard. Start in a sandbox. Each step links to the [Admin guide](admin-guide.md) for detail, and the [setup video](setup-video.md) walks through the same steps.
+From install to your first dashboard. Start in a sandbox. Each step links to the [Admin guide](admin-guide.md) for detail; the [setup video](setup-video.md) shows the same steps.
 
 ## 1. Install for Admins Only
 
-Open the installation link as a System Administrator and choose **Install for Admins Only**. You give everyone else access in step 3. Before you start, check the [requirements](admin-guide.md#before-you-install).
+Check the [requirements](admin-guide.md#before-you-install) first. Then open the installation link as a System Administrator and choose **Install for Admins Only**. Everyone else gets access in step 3.
 
 ## 2. Give yourself access
 
@@ -12,7 +12,7 @@ In Setup > Users > Permission Sets (filter by **R**), assign yourself **Revenue 
 
 ## 3. Open Admin / Setup
 
-From the App Launcher, open **Admin / Setup**. It starts on **Get started**: four steps in the order that works. **Next** marks the step to do now, **Show how** opens its steps with a **Copy** button, and **Recheck** confirms each one.
+From the App Launcher, open **Admin / Setup**. It opens on **Get started**, four steps in order. **Next** marks the one to do now. **Show how** opens its instructions with a **Copy** button, and **Recheck** confirms it.
 
 1. **Check core fields.** The defaults use Amount and Close Date. To report on another field, such as annual recurring revenue, pick it in **Configure Fields**, **Preview**, then **Save** ([Map your fields](admin-guide.md#map-your-fields)).
 2. **Assign Viewers.** Everyone who uses the dashboards needs Revenue Execution Viewer; it shows them only the deals they can already see. In Setup > Users > Users, open each person > Permission Set Assignments > **Edit Assignments**, add it, and **Save** ([Grant access](admin-guide.md#grant-access)).
@@ -23,7 +23,7 @@ When all four are done, the page reads **You're ready**.
 
 ## 4. Check a dashboard
 
-Open **Revenue Overview** from the Revenue Execution app, then check one dashboard as a Viewer would see it ([Verify](admin-guide.md#verify)). Tell your Viewers that the dashboards are read-only and that the [User guide](user-guide.md) explains every view.
+Open **Revenue Overview** from the Revenue Execution app, then check one dashboard as a Viewer sees it ([Verify](admin-guide.md#verify)). Tell your Viewers the dashboards are read-only, and point them to the [User guide](user-guide.md).
 
 ## 5. Optional: Deal Alerts
 

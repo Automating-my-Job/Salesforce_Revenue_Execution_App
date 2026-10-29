@@ -38,7 +38,7 @@ After you install, assign yourself two permission sets, Revenue Execution Config
 
 ## Get started
 
-Admin / Setup opens on Get started: four steps, in the order that works. **Next** marks the step to do now. See [Get started and Health](admin-guide.md#get-started-and-health).
+Admin / Setup opens on Get started: four steps, in order. **Next** marks the one to do now. See [Get started and Health](admin-guide.md#get-started-and-health).
 
 ## Check core fields
 
@@ -50,7 +50,7 @@ Assign Revenue Execution Viewer to everyone who uses the dashboards: **Copy** th
 
 ## Give Viewers field access
 
-Get started lists exactly which fields Viewers can't read yet. Grant Read on them in a permission set your company owns, assign it to your Viewers, and **Recheck**.
+Get started lists the fields Viewers can't read yet. Grant Read on them in a permission set your company owns, assign it to your Viewers, and **Recheck**.
 
 ## Fix remaining issues
 
@@ -58,7 +58,7 @@ Anything else Health finds shows up here, with the fix on the row. See [Troubles
 
 ## See it on a dashboard
 
-Dashboards follow your settings. Product Overview shows what's selling, flags what needs help, and your product mix. See the [User guide](user-guide.md).
+Every dashboard follows your settings. Product Overview shows what's selling, and its product mix flags what needs help. See the [User guide](user-guide.md).
 
 ## Deal Alerts
 
