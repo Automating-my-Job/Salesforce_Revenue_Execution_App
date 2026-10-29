@@ -2,7 +2,6 @@
 
 Fill this in as you follow the [admin guide](admin-guide.md), and keep it with your change records. If you saved in Admin / Setup, record the same values here. Record each prior value before you change it, so you can roll back. Where you can, record role or group names rather than individual users. Never record passwords.
 
-**Publish blocker:** API names have no namespace prefix yet; the package will add one.
 
 ## Access decisions
 

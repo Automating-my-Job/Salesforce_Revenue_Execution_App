@@ -1,6 +1,6 @@
 # Revenue Execution admin guide
 
-> **Not yet published.** Revenue Execution is not on AppExchange and has no installation package yet. Items marked **Publish blocker** must be resolved before this guide goes to customers. Installed, every component Revenue Execution adds carries the `OpsGS` namespace, as written here (`OpsGS__Revenue_Risk__c`); a setting whose value names one stays unprefixed, as shipped (`Revenue_Risk__c`). This guide is hosted at [revenue.opsgs.com](https://revenue.opsgs.com/admin-guide.html), which Admin / Setup links to; Viewers have the [User guide](user-guide.md).
+This guide is hosted at [revenue.opsgs.com](https://revenue.opsgs.com/admin-guide.html), which Admin / Setup links to; Viewers have the [User guide](user-guide.md).
 
 Follow the sections in order:
 
@@ -22,7 +22,7 @@ To point someone at a step, name the section and subsection, for example "Admin 
 
 Revenue Execution adds five read-only dashboards (Revenue Overview, Pipeline Schedule, Sales Outcomes, Product Overview, and Team Performance) and administrator-only Admin / Setup and Deal Alerts pages.
 
-1. **Check your edition.** You need Lightning Experience and an edition that runs Apex and custom metadata types, such as Enterprise, Unlimited, or Developer Edition. **Publish blocker:** the supported-edition list is not yet confirmed.
+1. **Check your edition.** You need Lightning Experience and an edition that runs Apex and custom metadata types, such as Enterprise, Unlimited, or Developer Edition.
 2. **Check your admin access.** You need Download AppExchange Packages (to install), Customize Application, View Setup and Configuration, Assign Permission Sets, and Manage Profiles and Permission Sets (for your field-access permission set, tab visibility, and permission set groups). A System Administrator has all five.
 3. **Check your data.** The dashboards read Opportunities with their Accounts and owners. Product Overview and product detail also need Products, price books, and Opportunity Products.
 4. **Check your volume.** Revenue Execution reads your Salesforce data live, so every figure is current, exact, and limited to what each person can see. It's built for organizations closing up to 25,000 deals a year. If you close more, contact us at [support@opsgs.com](mailto:support@opsgs.com) before you roll out, and we'll set up reporting sized for your volume. Views that include open deals (Pipeline Schedule, Product Overview, and Team Performance) work best by team or region on large pipelines; for Pipeline Schedule, that's above about 3,000 open deals.
@@ -36,15 +36,15 @@ Revenue Execution adds five read-only dashboards (Revenue Overview, Pipeline Sch
    - Otherwise, Admin / Setup only reads your setup and reports on it.
 9. **Know what it adds.**
    - The **Revenue Execution** app, with tabs Revenue Overview, Pipeline Schedule, Sales Outcomes, Product Overview, Team Performance, Opportunities, Admin / Setup, and Deal Alerts.
-   - Permission sets **Revenue Execution Viewer** (`OpsGS__Revenue_Execution_Viewer`), **Revenue Execution Configuration Health** (`OpsGS__Revenue_Execution_Config_Health`) for the Admin / Setup tab, **Revenue Execution Mapping Editor** (`OpsGS__Revenue_Execution_Mapping_Editor`), and **Revenue Execution Team Performance All Teams** (`OpsGS__Revenue_Execution_Team_All_Teams`), the last two assigned to no one. [Grant access](#grant-access) says what each grants. No permission set group is included.
-   - Custom permission **Revenue Execution Edit Mappings** (`OpsGS__Revenue_Execution_Edit_Mappings`), granted by none of the included permission sets, and **Team Performance: all teams** (`OpsGS__Revenue_Execution_Team_All_Teams`), granted only by its own set.
-   - Custom metadata type **Revenue Execution Setting** (`OpsGS__Revenue_Execution_Setting__mdt`) with one record, **Default**, and **Revenue Risk Tag** (`OpsGS__Revenue_Risk_Tag__mdt`) with four inactive records.
-   - Opportunity picklist fields **Required Response** (`OpsGS__Required_Response__c`), **Escalation State** (`OpsGS__Escalation_State__c`), and **Revenue Risk** (`OpsGS__Revenue_Risk__c`). No page layouts and no Product fields are included.
-   - Deal Alerts components, off and assigned to no one: the **Deal Alerts** tab (`OpsGS__Deal_Alerts`); custom metadata types **Deal Alert Rule** (`OpsGS__Deal_Alert_Rule__mdt`, three inactive samples) and **Deal Alert Setting** (`OpsGS__Deal_Alert_Setting__mdt`, record **Default**); objects `OpsGS__Deal_Alert_State__c`, `OpsGS__Deal_Alert_Run__c`, and `OpsGS__Deal_Alert_Notice__c`; permission sets `OpsGS__Revenue_Execution_Deal_Alerts` (the tab, its read class, and read) and `OpsGS__Revenue_Execution_Deal_Alerts_Manager` (the save class, and create, edit, and delete on those three objects only); and custom permission `OpsGS__Revenue_Execution_Manage_Deal_Alerts`, granted by none of the included permission sets.
+   - Permission sets **Revenue Execution Viewer** (`Revenue_Execution_Viewer`), **Revenue Execution Configuration Health** (`Revenue_Execution_Config_Health`) for the Admin / Setup tab, **Revenue Execution Mapping Editor** (`Revenue_Execution_Mapping_Editor`), and **Revenue Execution Team Performance All Teams** (`Revenue_Execution_Team_All_Teams`), the last two assigned to no one. [Grant access](#grant-access) says what each grants. No permission set group is included.
+   - Custom permission **Revenue Execution Edit Mappings** (`Revenue_Execution_Edit_Mappings`), granted by none of the included permission sets, and **Team Performance: all teams** (`Revenue_Execution_Team_All_Teams`), granted only by its own set.
+   - Custom metadata type **Revenue Execution Setting** (`Revenue_Execution_Setting__mdt`) with one record, **Default**, and **Revenue Risk Tag** (`Revenue_Risk_Tag__mdt`) with four inactive records.
+   - Opportunity picklist fields **Required Response** (`Required_Response__c`), **Escalation State** (`Escalation_State__c`), and **Revenue Risk** (`Revenue_Risk__c`). No page layouts and no Product fields are included.
+   - Deal Alerts components, off and assigned to no one: the **Deal Alerts** tab (`Deal_Alerts`); custom metadata types **Deal Alert Rule** (`Deal_Alert_Rule__mdt`, three inactive samples) and **Deal Alert Setting** (`Deal_Alert_Setting__mdt`, record **Default**); objects `Deal_Alert_State__c`, `Deal_Alert_Run__c`, and `Deal_Alert_Notice__c`; permission sets `Revenue_Execution_Deal_Alerts` (the tab, its read class, and read) and `Revenue_Execution_Deal_Alerts_Manager` (the save class, and create, edit, and delete on those three objects only); and custom permission `Revenue_Execution_Manage_Deal_Alerts`, granted by none of the included permission sets.
 
 ## Install
 
-**Publish blocker:** no installation link exists yet. Until the package is released, Revenue Execution is available only as source metadata that a Salesforce developer deploys. After that deployment, continue at [Grant access](#grant-access). A source deployment runs Apex tests that create fictional Opportunities and roll them back, so validation rules or automation that block new Opportunities can stop it.
+Revenue Execution is built and ready to install. Design partners get it now, and we install it with you; it goes on AppExchange once Salesforce completes our partner-tier approval. Email [support@opsgs.com](mailto:support@opsgs.com) to start. After installation, continue at [Grant access](#grant-access). A source deployment runs Apex tests that create fictional Opportunities and roll them back, so validation rules or automation that block new Opportunities can stop it.
 
 When the package is released:
 
@@ -63,7 +63,7 @@ Revenue Execution Viewer is designed to grant the app, the five dashboard tabs a
 1. **Assign the Viewer to dashboard users.** People see the dashboards only once they hold Revenue Execution Viewer, and it shows them only the deals they can already see. For each seller, manager, and executive: Setup > Users > Users > the person > Permission Set Assignments > **Edit Assignments**. Add Revenue Execution Viewer and click **Save**. Admin / Setup > Get started > **Recheck** confirms it.
    - Or from the permission set: Setup > Users > Permission Sets (filter by **R**) > Revenue Execution Viewer > Manage Assignments > **Add Assignment**. In a new org, its list may show only people you opened recently.
    - Or add Revenue Execution Viewer to a permission set group your org owns (Setup > Users > Permission Set Groups > your group > Permission Sets in Group > Add Permission Sets), assign the group, and wait until its status is Updated.
-2. **Assign administrators.** Assign both Revenue Execution Viewer and Revenue Execution Configuration Health to administrators who hold View Setup and Configuration. Assign Revenue Execution Configuration Health to no one else: only its holders see Admin / Setup, unless a profile or permission set shows the tab; Health warns when one lacks View Setup and Configuration. **Publish blocker:** confirm whether Install for Admins Only gives administrator profiles this page's Apex classes and tab.
+2. **Assign administrators.** Assign both Revenue Execution Viewer and Revenue Execution Configuration Health to administrators who hold View Setup and Configuration. Assign Revenue Execution Configuration Health to no one else: only its holders see Admin / Setup, unless a profile or permission set shows the tab; Health warns when one lacks View Setup and Configuration.
    - **Optional: let an administrator save settings in Admin / Setup.** Also assign Revenue Execution Mapping Editor, and grant that administrator the Revenue Execution Edit Mappings custom permission through a permission set your org owns (Custom Permissions > Edit). Saving there also needs a full Salesforce licence and **Modify Metadata Through Metadata API Functions**, which itself requires View Setup and Configuration and View Roles and Role Hierarchy. Without any of this, everything still works through Setup.
    - **Team Performance.** It lists the people in each viewer's own reporting line (each user's Manager), highest won value first, with no scores on people; its figures are descriptive and not for pay or employment decisions. To let Revenue Operations see every team, assign Revenue Execution Team Performance All Teams; it widens only who is listed, never what anyone can read. To hold the tab back (for example while HR reviews it), assign the Viewer through a permission set group and add a muting permission set that hides the Team Performance tab.
 3. **Leave the included permission sets unchanged.** Don't edit or clone them. Health reports a Fail if Revenue Execution Viewer, Configuration Health, or Mapping Editor gains access or loses its app, tabs, classes, or object reads. Health also checks the two Deal Alerts sets, who holds them, and who else shows their tab. Give any extra access through a permission set your org owns.
@@ -80,7 +80,6 @@ Revenue Execution Viewer is designed to grant the app, the five dashboard tabs a
    4. If a "… fields need Viewer read access" row lists fields, grant Read Access on them in step 4, then Recheck.
    5. If a row still fails, follow [Troubleshooting > Access and assignment](#access-and-assignment).
 
-   **Publish blocker:** it is not yet verified that a package install carries the Viewer's standard object and field reads.
 
 ## Get started and Health
 
@@ -152,7 +151,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **If blank or invalid:** an invalid field blocks every dashboard for every Viewer. A Viewer who can't read the field gets an access message instead, so grant Read Access first ([Grant access](#grant-access), step 4).
 - **After you change it:** check that the [deal-size bands](#deal-size-bands), which keep their amounts, still suit it. With multiple currencies, totals stay hidden as before.
 - **Health:** Settings, "Deal value uses …" or "Deal value needs a new field". Configure Fields lists only fields you can read.
-- **Edit:** Default setting > Deal Value Field API Name (`OpsGS__Deal_Value_Field_API_Name__c`).
+- **Edit:** Default setting > Deal Value Field API Name (`Deal_Value_Field_API_Name__c`).
 
 ### Owner credit
 
@@ -163,7 +162,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **If blank or invalid:** an invalid field blocks every dashboard for every Viewer. A Viewer who can't read the field gets an access message instead, so grant Read Access first ([Grant access](#grant-access), step 4).
 - **After you change it:** deals crediting no one show as **Unattributed**. Record access still follows Owner and your sharing, so My results counts only the credited deals each Viewer can see.
 - **Health:** Settings, "Owner credit uses …" or "Owner credit needs a new field"; Sharing, "My results follows …". Configure Fields lists only fields you can read.
-- **Edit:** Default setting > Owner Credit Field API Name (`OpsGS__Owner_Credit_Field_API_Name__c`).
+- **Edit:** Default setting > Owner Credit Field API Name (`Owner_Credit_Field_API_Name__c`).
 
 ### Pipeline date
 
@@ -174,7 +173,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **If blank or invalid:** an invalid field blocks Pipeline Schedule, Product Overview, and Revenue Overview; a Viewer who can't read it gets an access message. Sales Outcomes opens, with observed push Not tracked.
 - **After you change it:** empty values count in totals, are never past due, and show under **No date** (never with a date range). Close history isn't tracked. Pipeline Schedule's Closed Won deals follow it; Sales Outcomes keeps the outcome date.
 - **Health:** Settings, "Pipeline date uses …" or "Pipeline date needs a new field".
-- **Edit:** Default setting > Pipeline Date Field API Name (`OpsGS__Pipeline_Date_Field_API_Name__c`).
+- **Edit:** Default setting > Pipeline Date Field API Name (`Pipeline_Date_Field_API_Name__c`).
 
 ### Outcome date
 
@@ -184,7 +183,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **Default:** `CloseDate`, labeled "Current Opportunity Close Date". Close Date is editable, and the dashboards say so.
 - **If blank or invalid:** both settings are required. A blank, invalid, or unreadable field blocks Sales Outcomes, Product Overview, and Revenue Overview.
 - **Health:** Outcome and product mappings, "Outcome date …".
-- **Edit:** Default setting > Outcome Date Field API Name (`OpsGS__Outcome_Date_Field_API_Name__c`) and Outcome Date Label (`OpsGS__Outcome_Date_Label__c`).
+- **Edit:** Default setting > Outcome Date Field API Name (`Outcome_Date_Field_API_Name__c`) and Outcome Date Label (`Outcome_Date_Label__c`).
 
 ### Outcome sample size
 
@@ -194,7 +193,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **Default:** 5.
 - **If blank or invalid:** required. An invalid value blocks Sales Outcomes and Revenue Overview; Product Overview opens without Needs help. Pipeline Schedule is unaffected.
 - **Health:** Settings, "Outcome sample size …".
-- **Edit:** Default setting > Outcome Minimum Sample Size (`OpsGS__Outcome_Minimum_Sample_Size__c`).
+- **Edit:** Default setting > Outcome Minimum Sample Size (`Outcome_Minimum_Sample_Size__c`).
 
 ### Quarter basis
 
@@ -204,7 +203,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **Default:** Calendar quarters.
 - **If blank or invalid:** required, and Setup offers only the two choices. An invalid value blocks Pipeline Schedule and Revenue Overview. If fiscal periods are missing, periods fall back to calendar dates labeled "calendar".
 - **Health:** Settings, "Quarter basis …"; Periods (one row).
-- **Edit:** Default setting > Quarter Basis (`OpsGS__Quarter_Basis__c`).
+- **Edit:** Default setting > Quarter Basis (`Quarter_Basis__c`).
 
 ### Outcome start date
 
@@ -214,7 +213,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **Default:** `CreatedDate`, labeled "Opportunity created (UTC)".
 - **If blank or invalid:** cycle time shows as unavailable, and Product mix leaves out Days to close. Counts and rates are unaffected.
 - **Health:** Outcome and product mappings, "Outcome start date …".
-- **Edit:** Default setting > Outcome Start Date Field API Name (`OpsGS__Outcome_Start_Date_Field_API_Name__c`) and Outcome Start Date Label (`OpsGS__Outcome_Start_Date_Label__c`).
+- **Edit:** Default setting > Outcome Start Date Field API Name (`Outcome_Start_Date_Field_API_Name__c`) and Outcome Start Date Label (`Outcome_Start_Date_Label__c`).
 
 ### Timeline start date
 
@@ -224,7 +223,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **Default:** `CreatedDate`, labeled "Opportunity created (UTC)".
 - **If blank or invalid:** rows show "Start date unavailable". No other date is substituted.
 - **Health:** Optional context, "Timeline start date …".
-- **Edit:** Default setting > Start Date Field API Name (`OpsGS__Start_Date_Field_API_Name__c`) and Start Date Label (`OpsGS__Start_Date_Label__c`).
+- **Edit:** Default setting > Start Date Field API Name (`Start_Date_Field_API_Name__c`) and Start Date Label (`Start_Date_Label__c`).
 
 ### Close history
 
@@ -235,7 +234,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **If blank or invalid:** the markers and the push figure are hidden, with a note. Nothing is blocked.
 - **Tracked only while [Pipeline date](#pipeline-date) uses Close Date.**
 - **Health:** Settings, "Close-date history …" or "Close history …".
-- **Edit:** Default setting > Close History Source (`OpsGS__Close_History_Source__c`).
+- **Edit:** Default setting > Close History Source (`Close_History_Source__c`).
 
 ### Required action
 
@@ -245,7 +244,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **Default:** `Required_Response__c` (Required Response, added by Revenue Execution).
 - **If blank or invalid:** the feature is hidden, readiness uses your Next step field only (off while Next step is invalid), and Pipeline Schedule shows a setup note.
 - **Health:** Optional context, "Required action …".
-- **Edit:** Default setting > Response Field API Name (`OpsGS__Response_Field_API_Name__c`).
+- **Edit:** Default setting > Response Field API Name (`Response_Field_API_Name__c`).
 
 ### Next step
 
@@ -255,7 +254,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **Default:** blank, which uses Next Step.
 - **If blank or invalid:** an invalid field turns readiness off, with a note; nothing else changes. A Viewer who can't read the field loses readiness only.
 - **Health:** Optional context, "Next step …".
-- **Edit:** Default setting > Next Step Field API Name (`OpsGS__Next_Step_Field_API_Name__c`).
+- **Edit:** Default setting > Next Step Field API Name (`Next_Step_Field_API_Name__c`).
 
 ### Account segment
 
@@ -265,7 +264,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **Default:** blank (off).
 - **If blank or invalid:** the filter is hidden; an invalid or unreadable field adds a note on both dashboards. Totals don't change. Over 250 values also hides it.
 - **Health:** Optional context, "Account segment …".
-- **Edit:** Default setting > Account Segment Field API Name (`OpsGS__Account_Segment_Field_API_Name__c`).
+- **Edit:** Default setting > Account Segment Field API Name (`Account_Segment_Field_API_Name__c`).
 
 ### Stage group
 
@@ -279,7 +278,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **Default:** blank (off).
 - **If blank or invalid:** Pipeline Schedule shows each stage on its own; nothing else changes. A Viewer who can't read the field sees stages, with a note.
 - **Health:** Optional context, "Stage group …".
-- **Edit:** Default setting > Stage Group Field API Name (`OpsGS__Stage_Group_Field_API_Name__c`).
+- **Edit:** Default setting > Stage Group Field API Name (`Stage_Group_Field_API_Name__c`).
 
 ### Escalation state
 
@@ -289,7 +288,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **Default:** `Escalation_State__c` (Escalation State, added by Revenue Execution).
 - **If blank or invalid:** the feature is hidden, with a setup note.
 - **Health:** Optional context, "Escalation state …".
-- **Edit:** Default setting > Escalation Field API Name (`OpsGS__Escalation_Field_API_Name__c`).
+- **Edit:** Default setting > Escalation Field API Name (`Escalation_Field_API_Name__c`).
 
 ### Escalation manager
 
@@ -299,7 +298,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **Default:** Owner's manager (User.ManagerId).
 - **If blank or invalid:** required. When Disabled or invalid, both are hidden and deals group by Accountable owner.
 - **Health:** Optional context, "Escalation manager …".
-- **Edit:** Default setting > Manager Context Source (`OpsGS__Manager_Context_Source__c`).
+- **Edit:** Default setting > Manager Context Source (`Manager_Context_Source__c`).
 
 ### Pipeline products
 
@@ -309,7 +308,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **Default:** Opportunity products.
 - **If blank or invalid:** required. When Disabled or invalid, product detail is hidden, with a note.
 - **Health:** Optional context, "Pipeline products …"; Products, "No deals have products yet" or "Products are off".
-- **Edit:** Default setting > Product Context Source (`OpsGS__Product_Context_Source__c`).
+- **Edit:** Default setting > Product Context Source (`Product_Context_Source__c`).
 
 ### Deal-size bands
 
@@ -319,7 +318,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **Default:** 50000, 100000, and 250000. Check them after you change [Deal value](#deal-value).
 - **If blank or invalid:** required. If invalid, only the not-set choice remains, with a note; totals stay exact. With multiple currencies, priced bands are always unavailable.
 - **Health:** Settings, "Deal-size bands …".
-- **Edit:** Default setting > Deal Band One, Deal Band Two, and Deal Band Three (`OpsGS__Deal_Band_One__c`, `OpsGS__Deal_Band_Two__c`, `OpsGS__Deal_Band_Three__c`).
+- **Edit:** Default setting > Deal Band One, Deal Band Two, and Deal Band Three (`Deal_Band_One__c`, `Deal_Band_Two__c`, `Deal_Band_Three__c`).
 
 ### Close timing
 
@@ -329,7 +328,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **Default:** 30, 60, and 90.
 - **If blank or invalid:** required. If invalid, only Overdue (and No date, for a custom Pipeline date) remains, with a note.
 - **Health:** Settings, "Close-timing horizons …".
-- **Edit:** Default setting > Horizon One Days, Horizon Two Days, and Horizon Three Days (`OpsGS__Horizon_One_Days__c`, `OpsGS__Horizon_Two_Days__c`, `OpsGS__Horizon_Three_Days__c`).
+- **Edit:** Default setting > Horizon One Days, Horizon Two Days, and Horizon Three Days (`Horizon_One_Days__c`, `Horizon_Two_Days__c`, `Horizon_Three_Days__c`).
 
 ### Product family
 
@@ -339,7 +338,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **Default:** blank, which uses Product Family.
 - **If blank or invalid:** never blocks. An invalid field, the Product line field, more than 250 values, or a Viewer who can't read the field turns the family level off for that Viewer: the filter is disabled and the portfolio starts at Product line, or shows one flat list without it. Totals don't change.
 - **Health:** Outcome and product mappings, "Product family …".
-- **Edit:** Default setting > Product Family Field API Name (`OpsGS__Product_Family_Field_API_Name__c`).
+- **Edit:** Default setting > Product Family Field API Name (`Product_Family_Field_API_Name__c`).
 
 ### Product line
 
@@ -349,7 +348,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **Default:** blank (off).
 - **If blank or invalid:** the filter is disabled and the portfolio shows one flat list. Setting only one of the two is invalid. More than 250 values turns the filter off.
 - **Health:** Outcome and product mappings, "Product line …".
-- **Edit:** Default setting > Product Line Field API Name (`OpsGS__Product_Line_Field_API_Name__c`) and Product Line Label (`OpsGS__Product_Line_Label__c`).
+- **Edit:** Default setting > Product Line Field API Name (`Product_Line_Field_API_Name__c`) and Product Line Label (`Product_Line_Label__c`).
 
 ### Product tier
 
@@ -359,7 +358,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **Default:** blank (off).
 - **If blank or invalid:** the Tier filter is disabled.
 - **Health:** Outcome and product mappings, "Product tier …".
-- **Edit:** Default setting > Product Tier Field API Name (`OpsGS__Product_Tier_Field_API_Name__c`) and Product Tier Label (`OpsGS__Product_Tier_Label__c`).
+- **Edit:** Default setting > Product Tier Field API Name (`Product_Tier_Field_API_Name__c`) and Product Tier Label (`Product_Tier_Label__c`).
 
 ### Loss reason
 
@@ -372,7 +371,7 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **If blank:** Product Overview's Data notes say Loss reason isn't set up, and administrators with the Revenue Execution Edit Mappings custom permission see **Set up reasons** in Product mix, which opens Admin / Setup; Sales Outcomes says it is not configured.
 - **If invalid or only one is set:** Product Overview lists it under Setup notes and Sales Outcomes shows a notice, both named with your label. Lost-deal counts and lists still show in every case.
 - **Health:** Outcome and product mappings, "Loss reason …".
-- **Edit:** Default setting > Loss Reason Field API Name (`OpsGS__Loss_Reason_Field_API_Name__c`) and Loss Reason Label (`OpsGS__Loss_Reason_Label__c`).
+- **Edit:** Default setting > Loss Reason Field API Name (`Loss_Reason_Field_API_Name__c`) and Loss Reason Label (`Loss_Reason_Label__c`).
 
 ### Win reason
 
@@ -383,11 +382,11 @@ Deal-size bands, close timing, sample size, and risk tags show where they appear
 - **If blank:** Close reasons says win reasons aren't set up; administrators with the Revenue Execution Edit Mappings custom permission see **Set up reasons**, which opens Admin / Setup.
 - **If invalid or only one is set:** Close reasons says the field can't be used, named with your label. Won-deal counts still show.
 - **Health:** Outcome and product mappings, "Win reason …".
-- **Edit:** Default setting > Win Reason Field API Name (`OpsGS__Win_Reason_Field_API_Name__c`) and Win Reason Label (`OpsGS__Win_Reason_Label__c`).
+- **Edit:** Default setting > Win Reason Field API Name (`Win_Reason_Field_API_Name__c`) and Win Reason Label (`Win_Reason_Label__c`).
 
 ## Risk tags
 
-A risk tag turns an Opportunity field value into a Pipeline Schedule signal. Four tags are included, all inactive and all matching Revenue Risk (`OpsGS__Revenue_Risk__c`) with Equals: Critical, High, Watch, and Low. Revenue Execution Viewer grants Read on Revenue Risk.
+A risk tag turns an Opportunity field value into a Pipeline Schedule signal. Four tags are included, all inactive and all matching Revenue Risk (`Revenue_Risk__c`) with Equals: Critical, High, Watch, and Low. Revenue Execution Viewer grants Read on Revenue Risk.
 
 1. Decide whether your team will keep Revenue Risk, or another field, up to date. A tag on a field nobody maintains shows nothing useful.
 2. Open Setup > Custom Metadata Types > Revenue Risk Tag > Manage Records.
@@ -433,7 +432,7 @@ Deal Alerts emails deal owners, their managers and people you choose when open d
 
 {% include video.html id="deal-alerts" %}
 
-1. **Give it to administrators only.** Assign **Revenue Execution Deal Alerts** (`OpsGS__Revenue_Execution_Deal_Alerts`, the tab) and **Revenue Execution Deal Alerts Manager** (`OpsGS__Revenue_Execution_Deal_Alerts_Manager`, changes) only to administrators who have View Setup and Configuration and see every opportunity (View All Data, or View All on Opportunities). Grant the custom permission **Revenue Execution Manage Deal Alerts** through a permission set your org owns; without it the tab is read-only. A permission set that grants View Setup and Configuration must also grant View Roles. Saving also needs Modify Metadata Through Metadata API Functions. With Revenue Execution Viewer too, the tab is last in the Revenue Execution app; otherwise use the App Launcher.
+1. **Give it to administrators only.** Assign **Revenue Execution Deal Alerts** (`Revenue_Execution_Deal_Alerts`, the tab) and **Revenue Execution Deal Alerts Manager** (`Revenue_Execution_Deal_Alerts_Manager`, changes) only to administrators who have View Setup and Configuration and see every opportunity (View All Data, or View All on Opportunities). Grant the custom permission **Revenue Execution Manage Deal Alerts** through a permission set your org owns; without it the tab is read-only. A permission set that grants View Setup and Configuration must also grant View Roles. Saving also needs Modify Metadata Through Metadata API Functions. With Revenue Execution Viewer too, the tab is last in the Revenue Execution app; otherwise use the App Launcher.
 2. **Let Salesforce send and deliver.** Setup > Deliverability: Access level **All email**. Then verify the sender, because Salesforce silently drops mail from an unverified one: your own email address (in your personal settings, Personal Information; Salesforce emails you a verification link), or an organization-wide address (Setup > **Organization-Wide Addresses**) that you choose in Deal Alerts > **Settings**. Also authenticate your domain with DKIM keys (Setup > **DKIM Keys**) or Authorized Email Domains. Deal Alerts' Get started > **Check** confirms Salesforce allows sending and an organization-wide sender is verified, and warns if your own address shows unverified; only an arriving test confirms delivery.
 3. **Set rules.** In Deal Alerts > **Rules**, turn on the sample **Past-due deals** or choose **New rule**. Saving shows the rule's counts first. Cards also offer Copy, Reset (an edited sample) and Hide or Remove; hidden rules can be restored. **Settings** holds the send time, weekdays, sender, limits, retention and subjects. Two monthly samples are there too: products that need help (choose who gets it) and salesperson win rate (to each salesperson's manager, and if you choose, the salesperson and the manager's manager; turning it on first asks you to confirm your company allows alerts that name people).
 4. **Preview.** Deal Alerts > **Preview** shows which of your visible deals would email whom today, or why nobody would.
@@ -461,7 +460,7 @@ Each subsection below matches one area heading in the Health view, in page order
 
 ### Access and assignment
 
-- "Revenue Execution Viewer was changed" or "… is missing", Fail: the impact lists the differences. If someone added access, remove it and grant that access through a permission set your org owns. If the set is missing, or lacks access nobody removed, report it ([Get help](#get-help)). **Publish blocker:** repair by upgrade is not yet verified.
+- "Revenue Execution Viewer was changed" or "… is missing", Fail: the impact lists the differences. If someone added access, remove it and grant that access through a permission set your org owns. If the set is missing, or lacks access nobody removed, report it ([Get help](#get-help)).
 - "Viewer permission set: …", Info: Recheck. If it persists, check it by hand as above.
 - "… has other entries", Info: reported for review, not failed.
 - "Configuration Health permission set …": the same, for that permission set. Assign it only to administrators.
@@ -483,7 +482,7 @@ Each subsection below matches one area heading in the Health view, in page order
 - "Quarter basis needs a valid choice", "Outcome sample size isn't valid", or "… needs a new field" for Deal value, Pipeline date, or Owner credit, Fail, and "Deal-size bands aren't valid", "Close-timing horizons aren't valid", or "Close history isn't a valid choice", Warning: correct the setting as its [Map your fields](#map-your-fields) subsection describes.
 - "Close-date history is off", Info: your choice.
 - "Close-date history is not tracked", Info: [Pipeline date](#pipeline-date) isn't Close Date.
-- "Dashboards read Close history differently", Fail: a Revenue Execution defect, not a setting. Leave the setting as it is, report it ([Get help](#get-help)), and Recheck after the fix is applied. **Publish blocker:** no upgrade path is available yet.
+- "Dashboards read Close history differently", Fail: a Revenue Execution defect, not a setting. Leave the setting as it is, report it ([Get help](#get-help)), and Recheck after the fix is applied.
 
 ### Periods
 
@@ -506,7 +505,7 @@ Each subsection below matches one area heading in the Health view, in page order
 
 - "Outcome date needs a new field" or "Outcome date is incomplete", Fail, and "Outcome start date …", "Product family needs a new field", "Product line …", "Product tier …", "Loss reason …", or "Win reason …", Warning: correct the setting as its [Map your fields](#map-your-fields) subsection describes. "Incomplete" means only one of the field and the label is set.
 - "Product family repeats Product line", Warning: set Product family to a different Product field, or clear it to use Product Family. Meanwhile the portfolio starts at Product line.
-- "Dashboards read Outcome date differently", Fail: a Revenue Execution defect, not a setting. Leave the setting as it is, report it ([Get help](#get-help)), and Recheck after the fix is applied. **Publish blocker:** no upgrade path is available yet.
+- "Dashboards read Outcome date differently", Fail: a Revenue Execution defect, not a setting. Leave the setting as it is, report it ([Get help](#get-help)), and Recheck after the fix is applied.
 - "… is off", Info: the state after install; the row says how to turn it on.
 - "Outcome and product mappings: needs the Default setting", Info: appears only while the Default setting is missing.
 
